@@ -1,1 +1,1 @@
-Votação do Oscar
+
