@@ -1,4 +1,5 @@
 from diretor import Diretor
+from categoria import Categoria
 
 class Filme:
     def __init__(self, titulo: str, ano: int, diretor: Diretor, categoria: Categoria):
