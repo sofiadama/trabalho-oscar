@@ -1,5 +1,0 @@
-from controlador_diretor import ControladorDiretor
-
-if __name__ == "__main__":
-    controlador = ControladorDiretor()
-    controlador.inicia()
