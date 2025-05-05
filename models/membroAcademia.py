@@ -6,9 +6,5 @@ class MembroAcademia(Pessoa):
         super().__init__(id, nome, data_de_nascimento, nacionalidade)
         self.__votos = []
 
-    @property
-    def votos(self):
-        return self.__votos
-
     def adicionar_voto(self, voto: Voto):
         self.__votos.append(voto)
