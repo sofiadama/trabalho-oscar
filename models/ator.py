@@ -8,7 +8,7 @@ class Ator(Pessoa):
 
     def adicionar_indicacao():
         for ator_indicado in self.__atores_indicados:
-            if novo_ator_indicado == ator_indicado:
+            if nome == ator_indicado["ator"]:
                 print("Ator já foi indicado.")
                 return
 
