@@ -1,10 +1,16 @@
 from pessoa import Pessoa
+from categoria import Categoria
 
 class Ator(Pessoa):
-    def __init__(self, id: int, nome: str, data_de_nascimento: int, nacionalidade: str):
+    def __init__(self, id: int, nome: str, data_de_nascimento: int, nacionalidade: str, categoria: Categoria):
         super().__init__(id, nome, data_de_nascimento, nacionalidade)
+        self.__categoria = categoria
         self.__atores = []
         self.__atores_indicados = []
+
+    @property
+    def categoria(self): -> Categoria
+        return self.__categoria
 
     def adicionar_indicacao(self, nome: str, categoria: str, ano: int):
         for ator_indicado in self.__atores_indicados:
