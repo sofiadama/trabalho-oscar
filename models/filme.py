@@ -5,6 +5,7 @@ class Filme:
         self.__titulo = titulo
         self.__diretor = diretor
         self.__ano_de_lancamento = ano_de_lancamento
+        self.__filmes_indicados = []
         
     @property
     def titulo(self):
@@ -30,9 +31,9 @@ class Filme:
     def ano_de_lancamento(self, ano_de_lancamento):
         self.__ano_de_lancamento = ano_de_lancamento
 
-    def adicionar_indicacao(self, titulo: str
-        for ator_indicado in self.__atores_indicados:
-            if nome == ator_indicado["ator"]:
-                print("Ator já foi indicado.")
+    def adicionar_indicacao(self, titulo: str, diretor: Diretor, ano_de_lancamento: int):
+        for filme_indicado in self.__filmes_indicados:
+            if titulo == filme_indicado["titulo"]:
+                print("Filme já foi indicado.")
                 return
         
