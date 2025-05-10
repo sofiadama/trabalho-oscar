@@ -6,7 +6,7 @@ class Ator(Pessoa):
         self.__atores = []
         self.__atores_indicados = []
 
-    def adicionar_indicacao():
+    def adicionar_indicacao(self, nome: str, categoria: str, ano: int):
         for ator_indicado in self.__atores_indicados:
             if nome == ator_indicado["ator"]:
                 print("Ator já foi indicado.")
@@ -16,7 +16,7 @@ class Ator(Pessoa):
         self.__atores_indicados.append(novo_ator_indicado)
         return
         
-    def remover_indicacao():
+    def remover_indicacao(self, nome: str):
         for ator_indicado not in self.__atores_indicados:
             print("Ator não foi indicado.")
             return
