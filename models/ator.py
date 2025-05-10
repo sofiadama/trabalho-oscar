@@ -12,7 +12,11 @@ class Ator(Pessoa):
     def categoria(self): -> Categoria
         return self.__categoria
 
-    def adicionar_indicacao(self, nome: str, categoria: str, ano: int):
+    @categoria.setter
+    def categoria(self, categoria):
+        self.__categoria = categoria
+
+    def adicionar_indicacao(self, nome: str, categoria: Categoria, ano: int):
         for ator_indicado in self.__atores_indicados:
             if nome == ator_indicado["ator"]:
                 print("Ator já foi indicado.")
