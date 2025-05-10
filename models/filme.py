@@ -8,24 +8,31 @@ class Filme:
         
     @property
     def titulo(self):
-      return self.__titulo
+        return self.__titulo
 
     @titulo.setter
     def titulo(self, titulo):
-      self.__titulo = titulo
+        self.__titulo = titulo
 
     @property
     def diretor(self):
-      return self.__diretor
+        return self.__diretor
 
     @diretor.setter
     def diretor(self, diretor):
-      self.__diretor = diretor
+        self.__diretor = diretor
 
     @property
     def ano_de_lancamento(self):
-      return self.__ano_de_lancamento
+        return self.__ano_de_lancamento
 
     @ano_de_lancamento.setter
     def ano_de_lancamento(self, ano_de_lancamento):
-      self.__ano_de_lancamento = ano_de_lancamento
+        self.__ano_de_lancamento = ano_de_lancamento
+
+    def adicionar_indicacao(self, titulo: str
+        for ator_indicado in self.__atores_indicados:
+            if nome == ator_indicado["ator"]:
+                print("Ator já foi indicado.")
+                return
+        
