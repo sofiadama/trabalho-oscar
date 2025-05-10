@@ -1,5 +1,5 @@
 from filme import Filme
 
-class IndicacaoFilme(Filme):
+class VotoFilme(Filme):
     def __init__(self, filme: Filme):
         super().__init__(filme)
