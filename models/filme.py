@@ -38,6 +38,7 @@ class Filme:
                 return
 
         novo_filme_indicado = {"titulo": titulo, "diretor": diretor, "ano": ano_de_lancamento}
+        self.__filmes_indicados.append(novo_filme_indicado)
         return
 
     def alterar_indicacao(self):
