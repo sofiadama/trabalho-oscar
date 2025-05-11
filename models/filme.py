@@ -36,4 +36,20 @@ class Filme:
             if titulo == filme_indicado["titulo"]:
                 print("Filme já foi indicado.")
                 return
+
+        novo_filme_indicado = {"titulo": titulo, "diretor": diretor, "ano": ano_de_lancamento}
+        return
+
+    def alterar_indicacao(self):
+        pass
         
+    def listar_indicacoes(self):
+        return self.__filmes_indicados
+        
+    def remover_indicacao(self, titulo: str):
+        for filme_indicado not in self.__filmes_indicados:
+            print("Filme não foi indicado.")
+            return
+
+        self.__filmes_indicados = [filme_indicado for filme_indicado in self.__filmes_indicados if filme_indicado.get("titulo") != titulo]
+        return
