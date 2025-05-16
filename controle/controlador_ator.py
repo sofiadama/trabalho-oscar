@@ -1,5 +1,5 @@
 from tela.tela_ator import TelaAtor
-from.entidade.ator import Ator
+from entidade.ator import Ator
 
 class ControladorAtor:
     def __init__(self, controlador_sistema):
