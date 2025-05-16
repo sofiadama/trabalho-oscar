@@ -1,4 +1,3 @@
-from entidade.ator import Ator
 from tela.tela_ator import TelaAtor
 
 class ControladorAtor:
