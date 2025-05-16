@@ -16,7 +16,7 @@ class Indicado(ABC):
         return self.__nome
     
     @nome.setter
-    def nome(self, nome):
+    def nome(self, nome: str):
         self.__nome = nome
 
     @property
@@ -24,7 +24,7 @@ class Indicado(ABC):
         return self.__nacionalidade
     
     @nacionalidade.setter
-    def nacionalidade(self, nacionalidade):
+    def nacionalidade(self, nacionalidade: str):
         self.__nacionalidade = nacionalidade
     
     @property
@@ -32,7 +32,7 @@ class Indicado(ABC):
         return self.__categoria
     
     @categoria.setter
-    def categoria(self, categoria):
+    def categoria(self, categoria: Categoria):
         self.__categoria = categoria
 
     @property
@@ -40,7 +40,7 @@ class Indicado(ABC):
         return self.__filme
     
     @filme.setter
-    def filme(self, filme):
+    def filme(self, filme: Filme):
         self.__filme = filme
     
     @property
@@ -48,5 +48,5 @@ class Indicado(ABC):
         return self.__ano_indicacao
     
     @ano_indicacao.setter
-    def ano_indicacao(self, ano_indicacao):
+    def ano_indicacao(self, ano_indicacao: int):
         self.__ano_indicacao = ano_indicacao
