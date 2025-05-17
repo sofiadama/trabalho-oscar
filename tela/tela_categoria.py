@@ -1,31 +1,45 @@
 class TelaCategoria():
-    # fazer aqui tratamento dos dados, caso a entrada seja diferente do esperado
     def tela_opcoes(self):
-        print("*" * 15,"CADASTRO DE CATEGORIAS","*" * 15)
-        print("\n1. Adicionar categoria\n" \
-                "2. Alterar título\n" \
-                "3. Listar categorias\n" \
-                "4. Remover categoria\n" \
-                "0. Menu\n")
+        while True:
+            print("\n" + "*" * 15, "CADASTRO DE CATEGORIAS", "*" * 15)
+            print("1 - Adicionar categoria")
+            print("2 - Alterar título")
+            print("3 - Listar categorias")
+            print("4 - Remover categoria")
+            print("0 - Menu")
 
-        opcao = int(input("Digite a opção: "))
-        return opcao
+            try:
+                opcao = int(input("Digite a opção: "))
+                if opcao in [0, 1, 2, 3, 4]:
+                    return opcao
+                else:
+                    print("Opção inválida. Tente novamente.")
+            except ValueError:
+                print("Digite um número inteiro válido.")
 
-    #fazer aqui tratamento dos dados, caso a entrada seja diferente do esperado
     def pegar_dados_categoria(self):
-        print("*" * 15, "CADASTRAR CATEGORIA", "*" * 15)
-        titulo = input("Titulo: ")
-
+        print("\n" + "*" * 15, "CADASTRAR CATEGORIA", "*" * 15)
+        titulo = input("Título da categoria: ").strip()
+        while not titulo:
+            print("Título não pode ser vazio.")
+            titulo = input("Título da categoria: ").strip()
         return {"titulo": titulo}
 
-    # fazer aqui tratamento dos dados, caso a entrada seja diferente do esperado
     def mostrar_categoria(self, dados_categoria):
-        print("Categoria: ", dados_categoria["titulo"])
-        print("\n")
-        
+        print("\n--- Categoria ---")
+        print("Título:", dados_categoria["titulo"])
+        print("-" * 30)
+
     def buscar_categoria(self):
-        titulo = input("Buscar categoria: ")
+        titulo = input("Digite o título da categoria que deseja buscar: ").strip()
+        while not titulo:
+            print("Título não pode ser vazio.")
+            titulo = input("Digite o título da categoria que deseja buscar: ").strip()
         return titulo
+
+    def mostrar_mensagem(self, msg):
+        print(f"\n{msg}")
+
     
     def mostrar_mensagem(self, msg):
         print(msg)
