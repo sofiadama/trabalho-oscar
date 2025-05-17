@@ -32,7 +32,7 @@ class ControladorAtor:
     
     def alterar_dados(self):
         self.listar_atores()
-        nome_ator = self.__tela_ator.selecionar_ator()
+        nome_ator = self.__tela_ator.buscar_ator()
         ator = self.buscar_ator(nome_ator)
 
         if ator is not None:
