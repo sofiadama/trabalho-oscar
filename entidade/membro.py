@@ -1,5 +1,9 @@
 class Membro:
     def __init__(self, id: int, nome: str, nascimento: str, nacionalidade: str):
+        self._id = id
+        self.__nome = nome
+        self.__nascimento = nascimento
+        self.__nacionalidade = nacionalidade
         self.__votos = []
 
     @property 
@@ -33,3 +37,10 @@ class Membro:
     @nacionalidade.setter
     def nacionalidade(self, nacionalidade):
         self.__nacionalidade = nacionalidade
+
+    @property
+    def votos(self):
+        return self.__votos
+
+    def adicionar_voto(self, voto):
+        self.__votos.append(voto)
