@@ -53,5 +53,5 @@ class TelaVoto:
             print("ID inválido. Digite um número inteiro.")
             return self.buscar_voto()
 
-    def mostra_mensagem(self, msg):
+    def mostrar_mensagem(self, msg):
         print("\n" + str(msg))
