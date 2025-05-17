@@ -19,7 +19,7 @@ class ControladorAtor:
             dados_ator["nacionalidade"],
             dados_ator["categoria"],
             dados_ator["filme"],
-            dados_ator["ano de indicacao"]
+            dados_ator["ano_indicacao"]
         )
 
         self.__atores_indicados.append(ator)
@@ -52,7 +52,7 @@ class ControladorAtor:
             self.__tela_ator.mostrar_dados_ator({
                 "nome": ator.nome, 
                 "nacionalidade": ator.nacionalidade, 
-                "ano de indicacao": ator.ano_indicacao, 
+                "ano_indicacao": ator.ano_indicacao, 
                 "filme": ator.filme, 
                 "categoria": ator.categoria
             })
