@@ -8,7 +8,7 @@ class TelaMembro:
         print("4 - Excluir Membro")
         print("0 - Retornar")
 
-        while True:
+        while True:    #se a entrada for não for um num entre 0 e 4
             try:
                 opcao = int(input("Escolha a opção: "))
                 if opcao in [0, 1, 2, 3, 4]:
