@@ -57,9 +57,9 @@ class ControladorAtor:
                 "categoria": ator.categoria
             })
 
-    def remover_ator(self, nome: str):
+    def remover_ator(self):
         self.listar_atores()
-        ator = self.buscar_ator(nome)
+        ator = self.buscar_ator()
         if ator is None:
             print("Ator não foi cadastrado.")
             return
