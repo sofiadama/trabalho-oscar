@@ -7,7 +7,7 @@ class ControladorDiretor:
         self.__tela_diretor = TelaDiretor()
         self.__controlador_sistema = controlador_sistema
 
-    def pegar_diretor_por_nome(self, nome: str):
+    def buscar_diretor(self, nome: str):
         for diretor in self.__diretores:
             if diretor.nome == nome:
                 return diretor
@@ -20,7 +20,7 @@ class ControladorDiretor:
 
     def alterar_diretor(self):
         self.lista_diretores()
-        nome_diretor = self.__tela_diretor.selecionar_diretor()
+        nome_diretor = self.__tela_diretor.buscar_diretor()
         diretor = self.pega_diretor_por_nome(nome_diretor)
 
         if diretor is not None:
