@@ -1,8 +1,6 @@
 class TelaFilme:
-    def mostra_mensagem(self, mensagem):
-        print(f"\n{mensagem}")
-
-    def mostra_filmes(self, filmes):
+    
+    def mostrar_filmes(self, filmes):
         print("\n--- Filmes Indicados ---")
         for i, filme in enumerate(filmes, start=1):
             print(f"{i}. {filme.titulo} | Diretor: {filme.diretor.nome} | Categoria: {filme.categoria.nome}")
@@ -32,3 +30,6 @@ class TelaFilme:
         print("0 - Voltar")
         opcao = input("Escolha uma opção: ")
         return opcao
+        
+     def mostrar_mensagem(self, mensagem):
+        print(f"\n{mensagem}")
