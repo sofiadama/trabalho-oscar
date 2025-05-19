@@ -1,17 +1,27 @@
 from tela.tela_ator import TelaAtor
 from entidade.ator import Ator
 
-class ControladorAtor:
+class ControladorAtor():
     def __init__(self, controlador_sistema):
         self.__atores_indicados = []
         self.__tela_ator = TelaAtor()
         self.__controlador_sistema = controlador_sistema
+    
+    def pegar_ator_por_nome(self, nome: str):
+        for ator in self.__atores_indicados:
+            if ator.nome == nome:
+                return ator
+            elif self.__atores_indicados.count(ator) > 1:
+                self.__tela_ator.mostrar_mensagem("Há mais de um ator com esse nome.")
+        return None
 
-    def adicionar_ator(self, nome: str):
+    # adicionar funçao de comparar/buscar atores por filme 
+
+    def adicionar_ator(self):
         dados_ator = self.__tela_ator.pegar_dados_ator()
         for ator in self.__atores_indicados:
             if ator.nome == dados_ator["nome"] and ator.filme == dados_ator["filme"]:
-                print("Ator já foi cadastrado.")
+                print("\nAtor já foi indicado.")
                 return
 
         ator = Ator(
@@ -19,21 +29,16 @@ class ControladorAtor:
             dados_ator["nacionalidade"],
             dados_ator["categoria"],
             dados_ator["filme"],
-            dados_ator["ano_indicacao"]
+            dados_ator["ano de indicacao"]
         )
 
         self.__atores_indicados.append(ator)
     
-    def buscar_ator(self, nome: str):
-        for ator in self.__atores_indicados:
-            if ator.nome == nome:
-                return ator
-        return None
+    # limitar indicados para 5 por ANO
     
     def alterar_dados(self):
-        self.listar_atores()
         nome_ator = self.__tela_ator.buscar_ator()
-        ator = self.buscar_ator(nome_ator)
+        ator = self.pegar_ator_por_nome(nome_ator)
 
         if ator is not None:
             novos_dados_ator = self.__tela_ator.pegar_dados_ator()
@@ -45,31 +50,36 @@ class ControladorAtor:
             self.listar_atores()
 
         else:
-            print("Ator não cadastrado.")
+            self.__tela_ator.mostrar_mensagem("\nAtor não foi indicado.")
 
     def listar_atores(self):
+        print("----- ATORES INDICADOS -----\n")
         for ator in self.__atores_indicados:
             self.__tela_ator.mostrar_dados_ator({
                 "nome": ator.nome, 
-                "nacionalidade": ator.nacionalidade, 
-                "ano_indicacao": ator.ano_indicacao, 
-                "filme": ator.filme, 
-                "categoria": ator.categoria
+                "nacionalidade": ator.nacionalidade,
+                "categoria": ator.categoria,
+                "filme": ator.filme,
+                "ano de indicacao": ator.ano_indicacao 
             })
 
-    def remover_ator(self):
-        self.listar_atores()
-        ator = self.buscar_ator()
-        if ator is None:
-            print("Ator não foi cadastrado.")
-            return
+        if self.__atores_indicados == []:
+            self.__tela_ator.mostrar_mensagem("Nenhum ator indicado.")
 
-        self.__atores_indicados.remove(ator)
+    def remover_ator(self):
+        nome = self.__tela_ator.buscar_ator()
+        ator = self.pegar_ator_por_nome(nome)
+
+        if ator is not None:
+            self.__atores_indicados.remove(ator)
+            self.__tela_ator.mostrar_mensagem("\nAtor removido com sucesso!")
+        else:
+            self.__tela_ator.mostrar_mensagem("\nAtor não foi indicado.")
     
     def retornar_menu(self):
-        self.__controlador_sistema.abrir_tela()
+        self.__controlador_sistema.abrir_tela_indicacoes()
     
-    def abrir_tela(self):
+    def abrir_tela_ator(self):
         opcoes = {
             1: self.adicionar_ator, 
             2: self.alterar_dados, 
@@ -81,4 +91,3 @@ class ControladorAtor:
         continuar = True
         while continuar:
             opcoes[self.__tela_ator.tela_opcoes()]()
-            
