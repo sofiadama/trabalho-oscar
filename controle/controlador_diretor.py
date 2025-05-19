@@ -24,7 +24,7 @@ class ControladorDiretor:
         diretor = self.pega_diretor_por_nome(nome_diretor)
 
         if diretor is not None:
-            novos_dados = self.__tela_diretor.pega_dados_diretor()
+            novos_dados = self.__tela_diretor.buscar_diretor()
             diretor.nome = novos_dados["nome"]
             diretor.filme = novos_dados["filme"]
             diretor.nacionalidade = novos_dados["nacionalidade"]
@@ -48,8 +48,8 @@ class ControladorDiretor:
 
     def remover_diretor(self):
         self.lista_diretores()
-        id_diretor = self.__tela_diretor.seleciona_diretor()
-        diretor = self.pega_diretor_por_id(id_diretor)
+        id_diretor = self.__tela_diretor.selecionar_diretor()
+        diretor = self.pegar_diretor_por_id(id_diretor)
 
         if diretor is not None:
             self.__diretores.remover(diretor)
@@ -75,5 +75,5 @@ class ControladorDiretor:
             if funcao_escolhida:
                 funcao_escolhida()
             else:
-                self.__tela_diretor.mostra_mensagem("Opção inválida.")
+                self.__tela_diretor.mostrar_mensagem("Opção inválida.")
 
