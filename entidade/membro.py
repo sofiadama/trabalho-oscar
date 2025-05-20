@@ -1,6 +1,6 @@
 class Membro:
     def __init__(self, id: int, nome: str, nascimento: str, nacionalidade: str):
-        self._id = id
+        self.__id = id 
         self.__nome = nome
         self.__nascimento = nascimento
         self.__nacionalidade = nacionalidade
@@ -11,7 +11,7 @@ class Membro:
         return self.__id
     
     @id.setter
-    def id(self, id):
+    def id(self, id: int):
         self.__id = id
     
     @property
@@ -19,7 +19,7 @@ class Membro:
         return self.__nome
     
     @nome.setter
-    def nome(self, nome):
+    def nome(self, nome: str):
         self.__nome = nome
     
     @property
@@ -27,7 +27,7 @@ class Membro:
         return self.__nascimento
     
     @nascimento.setter
-    def nascimento(self, nascimento):
+    def nascimento(self, nascimento: str):
         self.__nascimento = nascimento
 
     @property
@@ -35,12 +35,5 @@ class Membro:
         return self.__nacionalidade
     
     @nacionalidade.setter
-    def nacionalidade(self, nacionalidade):
+    def nacionalidade(self, nacionalidade: str):
         self.__nacionalidade = nacionalidade
-
-    @property
-    def votos(self):
-        return self.__votos
-
-    def adicionar_voto(self, voto):
-        self.__votos.append(voto)

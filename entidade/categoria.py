@@ -1,4 +1,4 @@
-class Categoria():
+class Categoria:
     def __init__(self, titulo: str):
         self.__titulo = titulo
     

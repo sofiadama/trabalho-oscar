@@ -1,14 +1,16 @@
 from abc import ABC, abstractmethod
 from typing import TypeVar, Generic
-from membro import Membro
+from entidade.membro import Membro
+from entidade.categoria import Categoria
 
 Tipo = TypeVar("Tipo")
 
 class Voto(Generic[Tipo]):
   @abstractmethod
-  def __init__(self, membro: Membro, indicado: Tipo, ano: int):
+  def __init__(self, membro: Membro, indicado: Tipo, categoria: Categoria, ano: int):
       self.__membro = membro
       self.__indicado = indicado
+      self.__categoria = categoria
       self.__ano = ano
 
   @property
@@ -16,7 +18,7 @@ class Voto(Generic[Tipo]):
     return self.__membro
 
   @membro.setter
-  def membro(self, membro):
+  def membro(self, membro: Membro):
     self.__membro = membro
 
   @property
@@ -24,13 +26,21 @@ class Voto(Generic[Tipo]):
     return self.__indicado
 
   @indicado.setter
-  def indicado(self, indicado):
+  def indicado(self, indicado: Tipo):
     self.__indicado = indicado
+
+  @property
+  def categoria(self): 
+    return self.__categoria
+
+  @categoria.setter
+  def categoria(self, categoria: Categoria):
+    self.__categoria = categoria
 
   @property
   def ano(self):
     return self.__ano
 
   @ano.setter
-  def ano(self, ano):
+  def ano(self, ano: int):
     self.__ano = ano

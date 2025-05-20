@@ -1,10 +1,8 @@
-from voto import Voto
-from filme import Filme
-from membro import Membro
+from entidade.voto import Voto
+from entidade.membro import Membro
+from entidade.filme import Filme
+from entidade.categoria import Categoria
 
-
-class VotoAtor(Voto):
-  def __init__(self, membro: Membro, indicado: Filme, ano: int):
-    super().__init__(membro, indicado, ano)
-
-# escolher categoria
+class VotoFilme(Voto):
+  def __init__(self, membro: Membro, indicado: Filme, categoria: Categoria, ano: int):
+    super().__init__(membro, indicado, categoria, ano)
