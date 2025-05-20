@@ -1,31 +1,46 @@
-from abc import ABC, abstractmethod
+from tela.tela_voto import TelaVoto
+from controle.controlador_membro import ControladorMembro
 
-class ControladorVoto(ABC):
-    @abstractmethod
+class ControladorVoto(ControladorMembro):
     def __init__(self, controlador_sistema):
+        super().__init__(self)
+        self.__membro_autenticado = None
+        self.__votos = []
+        self.__tela_voto = TelaVoto()
         self.__controlador_sistema = controlador_sistema
-        self.__votos = {} # dicionario que armazena os votos por membro
+
+    @property
+    def membro_autenticado(self):
+        return self.__membro_autenticado
     
-    @abstractmethod
-    def verificar_duplicidade_voto():
-        # criar uma lista de votos para cada membro
-        # para ator e diretor: o voto nao pode conter o "ano" duplicado
-        # para filme: o voto nao pode conter a "categoria" duplicada
-        pass
+    def autenticar_membro(self):
+        if self.__membro_autenticado is not None: # verifica se HÁ membro autenticado (!= None)
+            return True
 
-    @abstractmethod
-    def adicionar_voto():
-        pass
+        id_membro = self.__tela_voto.autenticacao_membro()
+        for membro in super().pegar_lista_membros():
+            if membro.id == id_membro:
+                self.__membro_autenticado = membro
+                return True
+        
+            self.__tela_voto.mostrar_mensagem("Membro não cadastrado.")
+            return False
 
-    @abstractmethod
-    def alterar_voto():
-        pass
+    def listar_votos_gerais(self):
+        print("----- VOTOS GERAIS -----\n")
+        for voto in self.__votos:
+            self.__tela_voto.mostrar_dados_voto({
+                "membro": voto.membro, 
+                "indicado": voto.indicado,
+                "categoria": voto.categoria,
+                "ano": voto.ano
+            })
 
-    @abstractmethod
-    def listar_votos():
-        pass
+        if self.__votos == []:
+            self.__tela_voto.mostrar_mensagem("Nenhum voto registrado.")
+    
+    def pegar_lista_votos(self):
+        return self.__votos
 
-    @abstractmethod
-    def remover_voto():
-        pass
-
+    def retornar_menu(self):
+        self.__controlador_sistema.abrir_tela_votos()
