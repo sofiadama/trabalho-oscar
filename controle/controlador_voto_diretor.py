@@ -1,79 +1,89 @@
-from controle.controlador_voto import ControladorVoto
-from controle.controlador_diretor import ControladorDiretor
-from controle.controlador_membro import ControladorMembro
 from tela.tela_voto import TelaVoto
+from entidade.voto_diretor import VotoDiretor
+from controle.controlador_voto import ControladorVoto
 
 class ControladorVotoDiretor(ControladorVoto):
     def __init__(self, controlador_sistema):
-        super().__init__(controlador_sistema)
-        self.__controlador_sistema = controlador_sistema
+        super().__init__(self)
+        self.__votos_em_diretores = []
         self.__tela_voto = TelaVoto()
-        self.__votos = {}  # chave: id_membro, valor: lista de votos
+        self.__controlador_sistema = controlador_sistema
 
-    def autentificar_membro(self):
-        id_membro = self.__tela_voto.autentificacao_membro()
-        membros = self.__controlador_sistema.controlador_membro.lista_membros()
-        for membro in membros:
-            if membro.id == id_membro:
-                return membro
-        self.__tela_voto.mostra_mensagem("Membro não encontrado.")
+    def pegar_voto_por_categoria(self, categoria):
+        for voto in self.__votos_em_diretores:
+            if voto.categoria == categoria:
+                return voto
         return None
 
-    def verificar_duplicidade_voto(self, id_membro, ano):
-        if id_membro in self.__votos:
-            for voto in self.__votos[id_membro]:
-                if voto["ano"] == ano:
-                    self.__tela_voto.mostra_mensagem("Você já votou neste ano.")
-                    return True
-        return False
-
-    def mostrar_diretores_indicados(self):
-        diretores = self.__controlador_sistema.controlador_diretor.listar_diretores()
-        for diretor in diretores:
-            print(f"ID: {diretor.id} | Nome: {diretor.nome}")
-
     def adicionar_voto(self):
-        membro = self.autentificar_membro()
-        if not membro:
-            return
+        self.autenticar_membro(self.__controlador_membro.__membros)
         dados_voto = self.__tela_voto.pegar_dados_voto()
-        if self.verificar_duplicidade_voto(membro.id, dados_voto["ano"]):
-            return
-        if membro.id not in self.__votos:
-            self.__votos[membro.id] = []
-        self.__votos[membro.id].append(dados_voto)
-        self.__tela_voto.mostra_mensagem("Voto registrado com sucesso!")
-
-    def alterar_voto(self):
-        membro = self.autentificar_membro()
-        if not membro or membro.id not in self.__votos:
-            self.__tela_voto.mostra_mensagem("Nenhum voto encontrado.")
-            return
-        ano = input("Digite o ano do voto que deseja alterar: ")
-        for voto in self.__votos[membro.id]:
-            if voto["ano"] == ano:
-                novo_voto = self.__tela_voto.pegar_dados_voto()
-                voto.update(novo_voto)
-                self.__tela_voto.mostra_mensagem("Voto alterado com sucesso!")
+        for voto in self.__votos_em_diretores:
+            if voto.membro == dados_voto["membro"] and voto.categoria == dados_voto["categoria"]:
+                print("Você já votou nesta categoria.")
                 return
-        self.__tela_voto.mostra_mensagem("Voto não encontrado para o ano informado.")
 
-    def listar_votos(self):
-        for id_membro, votos in self.__votos.items():
-            print(f"Membro ID: {id_membro}")
-            for voto in votos:
-                self.__tela_voto.mostrar_voto(voto)
+        voto = VotoDiretor(
+            self.__membro_autenticado, 
+            dados_voto["indicado"],
+            dados_voto["categoria"],
+            dados_voto["ano"]
+        )
+
+        self.__votos_em_diretores.append(voto)
+        super().pegar_lista_votos().append(voto)
+    
+    def alterar_voto(self):
+        categoria_voto = self.__tela_voto.buscar_voto()
+        voto = self.pegar_voto_por_categoria(categoria_voto)
+
+        if voto is not None:
+            novos_dados_voto = self.__tela_voto.pegar_dados_voto()
+            voto.membro = novos_dados_voto["membro"]
+            voto.indicado = novos_dados_voto["indicado"]
+            voto.categoria = novos_dados_voto["categoria"]
+            voto.ano = novos_dados_voto["ano"]
+    
+            self.listar_votos_em_atores()
+
+        else:
+            self.__tela_voto.mostrar_mensagem("\nVoto não foi registrado.")
+
+    def listar_votos_em_diretores(self):
+        print("----- VOTOS EM DIRETORES -----\n")
+        for voto in self.__votos_em_diretores:
+            self.__tela_voto.mostrar_dados_voto({
+                "membro": voto.membro, 
+                "indicado": voto.indicado,
+                "categoria": voto.categoria,
+                "ano": voto.ano
+            })
+
+        if self.__votos_em_diretores == []:
+            self.__tela_voto.mostrar_mensagem("Nenhum voto em diretor registrado.")
 
     def remover_voto(self):
-        membro = self.autentificar_membro()
-        if not membro or membro.id not in self.__votos:
-            self.__tela_voto.mostra_mensagem("Nenhum voto encontrado.")
-            return
-        ano = input("Digite o ano do voto que deseja remover: ")
-        votos_membro = self.__votos[membro.id]
-        for voto in votos_membro:
-            if voto["ano"] == ano:
-                votos_membro.remove(voto)
-                self.__tela_voto.mostra_mensagem("Voto removido com sucesso!")
-                return
-        self.__tela_voto.mostra_mensagem("Voto não encontrado para o ano informado.")
+        self.__tela_voto.buscar_voto()
+        voto = self.pegar_voto_por_categoria(voto)
+
+        if voto is not None:
+            self.__votos_em_diretores.remove(voto)
+            self.__tela_voto.mostrar_mensagem("\nVoto removido com sucesso!")
+        else:
+            self.__tela_voto.mostrar_mensagem("\nVoto não foi registrado.")
+    
+    def retornar_menu(self):
+        self.__controlador_sistema.abrir_tela_votos()
+    
+    def abrir_tela_voto_diretor(self):
+        opcoes = {
+            1: self.adicionar_voto, 
+            2: self.alterar_voto, 
+            3: self.listar_votos_em_diretores, 
+            4: self.remover_voto, 
+            0: self.retornar_menu
+        }
+    
+        continuar = True
+        while continuar:
+            opcoes[self.__tela_voto.tela_votos_em_diretores()]()
