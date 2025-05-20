@@ -14,24 +14,24 @@ class TelaAtor():
     def pegar_dados_ator(self):
         print("*" * 15, "INDICAR ATOR", "*" * 15)
 
-        nome = input("\nNome: ")
-        nacionalidade = input("Nacionalidade: ")
-        ano_indicacao = int(input("Ano de indicação: "))
-        filme = input("Filme: ")
+        nome = input("\nNome: ").title()
+        nacionalidade = input("Nacionalidade: ").capitalize()
         categoria = "Melhor Ator"
+        filme = input("Filme: ").title()
+        ano_indicacao = int(input("Ano de indicação: "))
 
-        return {"nome": nome, "nacionalidade": nacionalidade, "ano de indicacao": ano_indicacao, "filme": filme, "categoria": categoria}
+        return {"nome": nome, "nacionalidade": nacionalidade, "categoria": categoria, "filme": filme, "ano de indicacao": ano_indicacao}
     
     def mostrar_dados_ator(self, dados_ator):
         print("Ator: ", dados_ator["nome"])
         print("Nacionalidade: ", dados_ator["nacionalidade"])
-        print("Ano de indicação: ", dados_ator["ano de indicacao"])
-        print("Filme: ", dados_ator["filme"])
         print("Categoria: ", dados_ator["categoria"])
+        print("Filme: ", dados_ator["filme"])
+        print("Ano de indicação: ", dados_ator["ano de indicacao"])
         print("\n")
 
     def buscar_ator(self):
-        ator = input("Buscar ator: ")
+        ator = input("Buscar ator: ").title
         return ator
 
     def mostrar_mensagem(self, msg):

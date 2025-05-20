@@ -1,35 +1,36 @@
-class TelaFilme:
-    
-    def mostrar_filmes(self, filmes):
-        print("\n--- Filmes Indicados ---")
-        for i, filme in enumerate(filmes, start=1):
-            print(f"{i}. {filme.titulo} | Diretor: {filme.diretor.nome} | Categoria: {filme.categoria.nome}")
-        print()
+class TelaFilme():
 
-    def pegar_dados_filme(self):
-        print("\n--- Cadastro de Filme ---")
-        titulo = input("Título do Filme: ")
-        id_diretor = input("ID do Diretor: ")
-        id_categoria = input("ID da Categoria: ")
-        return {
-            "titulo": titulo,
-            "id_diretor": id_diretor,
-            "id_categoria": id_categoria
-        }
-
-    def selecionar_filme(self):
-        escolha = input("Digite o número do filme desejado: ")
-        return escolha
-
-    def menu(self):
-        print("\n--- Menu Filme ---")
-        print("1 - Cadastrar Filme")
-        print("2 - Listar Filmes")
-        print("3 - Alterar Filme")
-        print("4 - Remover Filme")
-        print("0 - Voltar")
-        opcao = input("Escolha uma opção: ")
-        return opcao
+    def tela_opcoes(self):
+        print("*" * 15,"INDICAÇÃO DE FILMES","*" * 15)
+        print("\n1. Adicionar filme\n" \
+                "2. Alterar dados\n" \
+                "3. Listar filmes\n" \
+                "4. Remover filme\n" \
+                "0. Menu\n")
         
-     def mostrar_mensagem(self, mensagem):
-        print(f"\n{mensagem}")
+        opcao = int(input("Digite a opção: "))
+        return opcao
+    
+    def pegar_dados_filme(self):
+        print("*" * 15, "INDICAR FILME", "*" * 15)
+
+        titulo = input("\nTítulo: ").title()
+        sinopse = input("Sinopse: ")
+        categoria = input("Categoria: ").title()
+        ano_indicacao = int(input("Ano de indicação: "))
+
+        return {"titulo": titulo, "sinopse": sinopse, "categoria": categoria, "ano de indicacao": ano_indicacao}
+    
+    def mostrar_dados_filme(self, dados_filme):
+        print("Filme: ", dados_filme["titulo"])
+        print("Sinopse: ", dados_filme["sinopse"])
+        print("Categoria: ", dados_filme["categoria"])
+        print("Ano de indicação: ", dados_filme["ano de indicacao"])
+        print("\n")
+
+    def buscar_filme(self):
+        filme = input("Buscar filme: ").title
+        return filme
+
+    def mostrar_mensagem(self, msg):
+        print(msg)

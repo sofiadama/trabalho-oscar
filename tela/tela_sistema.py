@@ -16,43 +16,41 @@ class TelaSistema:
                     print("Valores válidos: ", ints_validos)
 
     def tela_opcoes_principais(self):
-        print("----- Votação do Oscar -----\n")
-        print("\n1. Cadastros" \
-                "2. Indicações" \
-                "3. Votos" \
+        print("----- Votação do Oscar -----")
+        print("\n1. Cadastros\n" \
+                "2. Indicações\n" \
+                "3. Votos\n" \
                 "0. Encerrar\n")
         
         opcao = self.le_num_inteiro("Digite a opção: ", [0,1,2,3])
         return opcao
 
     def tela_opcoes_cadastros(self):
-        print("------ Cadastros ------\n")
-        print("1. Cadastrar Membro" \
-              "2. Cadastrar Categoria" \
-              "0. Retornar ao Menu\n")
+        print("------ Cadastros ------")
+        print("\n1. Cadastrar Membro\n" \
+                "2. Cadastrar Categoria\n" \
+                "0. Menu\n")
         
         opcao = self.le_num_inteiro("Digite a opção: ", [0,1,2])
         return opcao
 
     def tela_opcoes_indicacoes(self):
-        print("------ Indicações ------\n")
-        print("1. Indicar Ator" \
-              "2. Indicar Diretor" \
-              "3. Indicar Filme" \
-              "0. Retornar ao Menu\n")
+        print("------ Indicações ------")
+        print("\n1. Indicar Ator\n" \
+                "2. Indicar Diretor\n" \
+                "3. Indicar Filme\n" \
+                "0. Menu\n")
         
         opcao = self.le_num_inteiro("Digite a opção: ", [0,1,2,3])
         return opcao
 
     def tela_opcoes_votos(self):
-        print("------ Votos ------\n")
-        print("1. Votar em Ator" \
-              "2. Votar em Diretor" \
-              "3. Votar em Filme" \
-              "4. Gerar Relatório" \
-              "0. Retornar ao Menu\n")
+        print("*" * 15,"VOTOS","*" * 15)
+        print("\n1. Votar\n" \
+                "2. Listar votos\n" \
+                "0. Menu\n")
         
-        opcao = self.le_num_inteiro("Digite a opção: ", [0,1,2,3,4])
+        opcao = self.le_num_inteiro("Digite a opção: ", [0,1,2])
         return opcao
 
 if __name__ == "__main__":
