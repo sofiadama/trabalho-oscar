@@ -42,6 +42,10 @@ class ControladorFilme:
         self.listar_filmes()
         
     def listar_filmes(self):
+        if not self.__filmes_indicados:
+            print(f"\nNenhum filme indicado.")
+            return
+        
         print("----- FILMES INDICADOS -----\n")
         for filme in self.__filmes_indicados:
             self.__tela_filme.mostrar_dados_filme({
