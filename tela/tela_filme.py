@@ -15,6 +15,7 @@ class TelaFilme():
         print("*" * 15,"RELATÓRIO DE INDICAÇÕES","*" * 15)
         print("\n1. Filtrar por categoria\n" \
                 "2. Filtrar por ano\n" \
+                "3. Obter relatório completo\n" \
                 "0. Menu\n")
 
         opcao = self.le_num_inteiro("Digite a opção: ")
