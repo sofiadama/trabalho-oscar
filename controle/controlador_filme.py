@@ -19,7 +19,7 @@ class ControladorFilme:
 
         if self.verificar_categoria_inexistente(dados_filme):
             return
-        if self.verificar_categoria_irrestrita(dados_filme):
+        if self.verificar_categoria_restrita(dados_filme):
             return
         if self.verificar_duplicidade_indicacao(dados_filme):
             return
@@ -42,8 +42,6 @@ class ControladorFilme:
         self.listar_filmes()
         
     def listar_filmes(self):
-        self.mostrar_indicados_por_filtro()
-
         print("----- FILMES INDICADOS -----\n")
         for filme in self.__filmes_indicados:
             self.__tela_filme.mostrar_dados_filme({
@@ -59,6 +57,7 @@ class ControladorFilme:
 
         if filme is None:
             self.__tela_filme.mostrar_mensagem("\nFilme não foi indicado.")
+            return
 
         self.__filmes_indicados.remove(filme)
         self.__tela_filme.mostrar_mensagem("\nFilme removido com sucesso!")
@@ -71,8 +70,10 @@ class ControladorFilme:
             return True
         return False
     
-    def verificar_categoria_irrestrita(self, categoria):
-        if categoria in self.__controlador_sistema.controlador_categoria.pegar_categorias_restritas():
+    def verificar_categoria_restrita(self, dados_filme):
+        categorias_restritas = self.__controlador_sistema.controlador_categoria.pegar_categorias_restritas()
+        
+        if dados_filme["categoria"] in categorias_restritas:
             print("\nCategoria restrita a atores e diretores.")
             return True
         return False
@@ -127,12 +128,24 @@ class ControladorFilme:
     
     def retornar_menu(self):
         self.__controlador_sistema.abrir_submenu_indicacoes()
+
+    def listar_filmes_por_filtro(self):
+        opcoes = {
+            1: self.filtrar_indicados_por_categoria,
+            2: self.filtrar_indicados_por_ano,
+            3: self.listar_filmes,
+            0: self.abrir_tela_filme
+        }
+
+        continuar = True
+        while continuar:
+            opcoes[self.__tela_filme.tela_opcoes_filtros()]()
     
     def abrir_tela_filme(self):
         opcoes = {
             1: self.adicionar_filme, 
             2: self.alterar_dados, 
-            3: self.listar_filmes, 
+            3: self.listar_filmes_por_filtro, 
             4: self.remover_filme, 
             0: self.retornar_menu
         }
@@ -141,13 +154,4 @@ class ControladorFilme:
         while continuar:
             opcoes[self.__tela_filme.tela_opcoes()]()
     
-    def mostrar_indicados_por_filtro(self):
-        opcoes = {
-            1: self.filtrar_indicados_por_categoria,
-            2: self.filtrar_indicados_por_ano,
-            0: self.abrir_tela_filme
-        }
-
-        continuar = True
-        while continuar:
-            opcoes[self.__tela_filme.tela_opcoes_filtros()]()
+    
