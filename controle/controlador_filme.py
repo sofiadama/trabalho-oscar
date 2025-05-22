@@ -90,12 +90,7 @@ class ControladorFilme:
         return False
 
     def pegar_filme_por_titulo(self, titulo: str):
-        for filme in self.__filmes_indicados:
-            if filme.titulo == titulo:
-                return filme
-            elif self.__filmes_indicados.count(filme) > 1:
-                self.__tela_filme.mostrar_mensagem("Há mais de um filme com esse título.")
-        return None
+        return [filme for filme in self.__filmes_indicados if filme.titulo == titulo]
     
     def pegar_filme_por_categoria(self, categoria: str):
         return [filme for filme in self.__filmes_indicados if filme.categoria == categoria]
