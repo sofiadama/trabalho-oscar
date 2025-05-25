@@ -62,25 +62,22 @@ class ControladorSistema:
         return self.__controlador_voto_filme
     
     def iniciar_sistema(self):
-        self.abrir_tela_principal()
+        self.abrir_menu_principal()
     
-    def cadastros(self):
-        self.abrir_tela_cadastros()
+    def acessar_cadastros(self):
+        self.abrir_submenu_cadastros()
     
-    def indicacoes(self):
-        self.abrir_tela_indicacoes()
+    def acessar_indicacoes(self):
+        self.abrir_submenu_indicacoes()
     
-    def votos(self):
-        self.abrir_tela_votos()
+    def acessar_votos(self):
+        self.abrir_submenu_votos()
 
     def cadastro_membro(self):
         self.controlador_membro.abrir_tela_membro()
     
     def cadastro_categoria(self):
         self.controlador_categoria.abrir_tela_categoria()
-
-    def cadastro_voto(self):
-        self.escolher_tipo_indicado()
 
     def indicacao_ator(self):
         self.__controlador_ator.abrir_tela_ator()
@@ -91,79 +88,88 @@ class ControladorSistema:
     def indicacao_filme(self):
         self.__controlador_filme.abrir_tela_filme()
     
+    def registro_voto(self):
+        self.__controlador_voto.autenticar_membro()
+
     def encerrar_sistema(self):
         exit(0)
 
-    def abrir_tela_principal(self):
+    def excecao_opcao_errada(self, lista_opcoes, funcao_tela, opcoes_validas = None):
+        while True:
+            try:
+                opcao_escolhida = funcao_tela()
+                funcao_escolhida = lista_opcoes[opcao_escolhida]
+                funcao_escolhida()
+                return
+            except KeyError:
+                print("Opção inválida!")
+                if opcoes_validas:
+                    print("Opções válidas: ", opcoes_validas)
+    
+    def abrir_menu_principal(self):
         lista_opcoes = {
-            1: self.cadastros,
-            2: self.indicacoes,
-            3: self.votos,
+            1: self.acessar_cadastros,
+            2: self.acessar_indicacoes,
+            3: self.acessar_votos,
             0: self.encerrar_sistema
         }
-    
-        while True:
-            opcao_escolhida = self.__tela_sistema.tela_opcoes_principais()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            funcao_escolhida()
-    
-    def abrir_tela_cadastros(self):
+        
+        self.excecao_opcao_errada(
+            lista_opcoes,
+            self.__tela_sistema.tela_opcoes_principais,
+            [0,1,2,3]
+        )
+                     
+    def abrir_submenu_cadastros(self):
         lista_opcoes = {
             1: self.cadastro_membro,
             2: self.cadastro_categoria,
-            0: self.abrir_tela_principal
+            0: self.abrir_menu_principal
         }
         
-        while True:
-            opcao_escolhida = self.__tela_sistema.tela_opcoes_cadastros()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            funcao_escolhida()
+        self.excecao_opcao_errada(
+            lista_opcoes,
+            self.__tela_sistema.tela_opcoes_cadastros,
+            [0,1,2]
+        )
     
-    def abrir_tela_indicacoes(self):
+    def abrir_submenu_indicacoes(self):
         lista_opcoes = {
             1: self.indicacao_ator,
             2: self.indicacao_diretor,
             3: self.indicacao_filme,
-            0: self.abrir_tela_principal
+            0: self.abrir_menu_principal
         }
         
-        while True:
-            opcao_escolhida = self.__tela_sistema.tela_opcoes_indicacoes()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            if funcao_escolhida is None:
-                break
-            funcao_escolhida()
+        self.excecao_opcao_errada(
+            lista_opcoes,
+            self.__tela_sistema.tela_opcoes_indicacoes,
+            [0,1,2,3]
+        )
     
-    def abrir_tela_votos(self):
+    def abrir_submenu_votos(self):
         lista_opcoes = {
-            1: self.escolher_tipo_indicado, 
-            2: self.controlador_voto.listar_votos_gerais,
-            0: self.abrir_tela_principal
+            1: self.controlador_voto.autenticar_membro, 
+            2: self.controlador_voto.abrir_filtro_vencedores,
+            0: self.abrir_menu_principal
         }
     
-        while True:
-            opcao_escolhida = self.__tela_sistema.tela_opcoes_votos()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            if funcao_escolhida is None:
-                break
-            funcao_escolhida()
+        self.excecao_opcao_errada(
+            lista_opcoes,
+            self.__tela_sistema.tela_opcoes_votos,
+            [0,1,2]
+        )
 
-    def escolher_tipo_indicado(self):
-        if self.__controlador_voto.membro_autenticado is None:
-            if not self.controlador_voto.autenticar_membro():
-                return
-
+    def escolher_tipo_de_voto(self):
         lista_opcoes = {
             1: self.__controlador_voto_ator.abrir_tela_voto_ator, 
             2: self.__controlador_voto_diretor.abrir_tela_voto_diretor, 
             3: self.__controlador_voto_filme.abrir_tela_voto_filme,
-            0: None
+            0: self.abrir_submenu_votos
         }
-    
-        while True:
-            opcao_escolhida = self.__tela_voto.tela_tipo_indicados()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            if funcao_escolhida is None:
-                break
-            funcao_escolhida()
-    
+
+        self.excecao_opcao_errada(
+            lista_opcoes,
+            self.__tela_voto.tela_tipos_de_votos,
+            [0,1,2,3]
+        )
