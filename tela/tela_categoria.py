@@ -7,9 +7,12 @@ class TelaCategoria():
                 "3. Listar categorias\n" \
                 "4. Remover categoria\n" \
                 "0. Menu\n")
-        
-        opcao = int(input("Digite a opção: "))
-        return opcao
+        try:
+            opcao = int(input("Escolha a opcao: "))
+            return opcao
+        except ValueError:
+            self.mostrar_mensagem("Opção inválida. Digite um número.")
+            return -1
     
     def pegar_dados_categoria(self):
         print("*" * 15, "CADASTRAR CATEGORIA", "*" * 15)
@@ -27,3 +30,4 @@ class TelaCategoria():
 
     def mostrar_mensagem(self, msg):
         print(msg)
+
