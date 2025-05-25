@@ -8,45 +8,56 @@ class ControladorMembro():
         self.__controlador_sistema = controlador_sistema
     
     def pegar_membro_por_id(self, id: int):
-        for membro in self.__membros:
-            if membro.id == id:
-                return membro
-            elif self.__membros.count(membro) > 1:
+        try:
+            membros_encontrados = [m for m in self.__membros if m.id == id]
+
+            if not membros_encontrados:
+                raise (f"Membro com ID {id} não encontrado.")
+            if len(membros_encontrados) > 1:
                 self.__tela_membro.mostrar_mensagem("Há mais de um membro com esse id.")
-        return None
+        except AttributeError as e:
+            self.__tela_membro.mostrar_mensagem(str(e))
+                    
+        return membros_encontrados[0]
 
     def adicionar_membro(self):
-        dados_membro = self.__tela_membro.pegar_dados_membro()
-        for membro in self.__membros:
-            if membro.id == dados_membro["id"] and membro.nome == dados_membro["nome"]:
-                print("\nMembro já foi cadastrado.")
-                return
+        try:
+            dados_membro = self.__tela_membro.pegar_dados_membro()
+            for membro in self.__membros:
+                if membro.id == dados_membro["id"] and membro.nome == dados_membro["nome"]:
+                    raise Exception("Membro já foi cadastrado.")
 
-        membro = Membro(
-            dados_membro["id"], 
-            dados_membro["nome"],
-            dados_membro["nascimento"],
-            dados_membro["nacionalidade"]
-        )
+            membro = Membro(
+                dados_membro["id"], 
+                dados_membro["nome"],
+                dados_membro["nascimento"],
+                dados_membro["nacionalidade"]
+            )
+            self.__membros.append(membro)
+            self.__tela_membro.mostrar_mensagem("\nMembro cadastrado com sucesso!")
+        except AttributeError as e:
+            self.__tela_membro.mostrar_mensagem(str(e))
 
-        self.__membros.append(membro)
-    
     def alterar_dados(self):
-        id_membro = self.__tela_membro.buscar_membro()
-        membro = self.pegar_membro_por_id(id_membro)
+        try:
+            id_membro = self.__tela_membro.buscar_membro()
+            membro = self.pegar_membro_por_id(id_membro)
 
-        if membro is not None:
             novos_dados_membro = self.__tela_membro.pegar_dados_membro()
             membro.id = novos_dados_membro["id"]
             membro.nome = novos_dados_membro["nome"]
             membro.nascimento = novos_dados_membro["nascimento"]
             membro.nacionalidade = novos_dados_membro["nacionalidade"]
-            self.listar_membros()
-
-        else:
-            self.__tela_membro.mostrar_mensagem("\nMembro não foi cadastrado.")
+            self.__tela_membro.mostrar_mensagem("\nDados alterados com sucesso!")
+            
+        except AttributeError as e:
+            self.__tela_membro.mostrar_mensagem(str(e))
 
     def listar_membros(self):
+        if not self.__membros:
+            self.__tela_membro.mostrar_mensagem("Nenhum membro cadastrado.")
+            return
+
         print("----- MEMBROS DA ACADEMIA -----\n")
         for membro in self.__membros:
             self.__tela_membro.mostrar_dados_membro({
@@ -56,24 +67,20 @@ class ControladorMembro():
                 "nacionalidade": membro.nacionalidade
             })
 
-        if self.__membros == []:
-            self.__tela_membro.mostrar_mensagem("Nenhum membro cadastrado.")
-
     def remover_membro(self):
-        id = self.__tela_membro.buscar_membro()
-        membro = self.pegar_membro_por_id(id)
-
-        if membro is not None:
+        try:
+            id = self.__tela_membro.buscar_membro()
+            membro = self.pegar_membro_por_id(id)
             self.__membros.remove(membro)
             self.__tela_membro.mostrar_mensagem("\nMembro removido com sucesso!")
-        else:
-            self.__tela_membro.mostrar_mensagem("\nMembro não foi cadastrado.")
+        except AttributeError as e:
+            self.__tela_membro.mostrar_mensagem(str(e))
     
     def pegar_lista_membros(self):
         return self.__membros
 
     def retornar_menu(self):
-        self.__controlador_sistema.abrir_tela_cadastros()
+        self.__controlador_sistema.abrir_submenu_cadastros()
     
     def abrir_tela_membro(self):
         opcoes = {
@@ -86,4 +93,13 @@ class ControladorMembro():
     
         continuar = True
         while continuar:
-            opcoes[self.__tela_membro.tela_opcoes()]()
+            try:
+                opcao = self.__tela_membro.tela_opcoes()
+                if opcao in opcoes:
+                    opcoes[opcao]()
+                else:
+                    self.__tela_membro.mostrar_mensagem("Opção inválida.")
+            except Exception as e:
+                self.__tela_membro.mostrar_mensagem(f"Erro inesperado: {e}")
+
+
