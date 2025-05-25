@@ -7,9 +7,12 @@ class TelaAtor():
                 "3. Listar atores\n" \
                 "4. Remover ator\n" \
                 "0. Menu\n")
-        
-        opcao = int(input("Digite a opção: "))
-        return opcao
+        try:
+            opcao = int(input("Escolha a opcao: "))
+            return opcao
+        except ValueError:
+            self.mostrar_mensagem("Opção inválida. Digite um número.")
+            return -1
     
     def pegar_dados_ator(self):
         print("*" * 15, "INDICAR ATOR", "*" * 15)
@@ -27,7 +30,11 @@ class TelaAtor():
         print("Nacionalidade: ", dados_ator["nacionalidade"])
         print("Categoria: ", dados_ator["categoria"])
         print("Filme: ", dados_ator["filme"])
-        print("Ano de indicação: ", dados_ator["ano de indicacao"])
+        try:
+            print("Ano de indicação: ", int(dados_ator["ano de indicacao"]))
+        except (ValueError, KeyError):
+            self.mostrar_mensagem("Ano inválido. Use apenas números.")
+            return None
         print("\n")
 
     def buscar_ator(self):
