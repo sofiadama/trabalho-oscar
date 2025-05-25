@@ -8,33 +8,41 @@ class Filme:
         self.__ano_indicacao = ano_indicacao
     
     @property
-    def titulo(self):
+    def titulo(self) -> str:
         return self.__titulo
 
     @titulo.setter
     def titulo(self, titulo: str):
+        if not isinstance(titulo, str):
+            raise TypeError("Título inválido.")
         self.__titulo = titulo
     
     @property
-    def sinopse(self):
+    def sinopse(self) -> str:
         return self.__sinopse
 
     @sinopse.setter
     def sinopse(self, sinopse: str):
+        if not isinstance(sinopse, str):
+            raise TypeError("Sinopse inválida.")
         self.__sinopse = sinopse
 
     @property
-    def categoria(self):
+    def categoria(self) -> Categoria:
         return self.__categoria
 
     @categoria.setter
     def categoria(self, categoria: Categoria):
+        if not isinstance(categoria, Categoria):
+            raise TypeError("Categoria inválida.")
         self.__categoria = categoria
 
     @property
-    def ano_indicacao(self):
+    def ano_indicacao(self) -> int:
         return self.__ano_indicacao
     
     @ano_indicacao.setter
     def ano_indicacao(self, ano_indicacao: int):
+        if not isinstance(ano_indicacao, int):
+            raise TypeError("Ano de indicação inválido.")
         self.__ano_indicacao = ano_indicacao

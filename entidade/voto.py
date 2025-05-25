@@ -5,42 +5,48 @@ from entidade.categoria import Categoria
 
 Tipo = TypeVar("Tipo")
 
-class Voto(Generic[Tipo]):
-  @abstractmethod
-  def __init__(self, membro: Membro, indicado: Tipo, categoria: Categoria, ano: int):
+class Voto(ABC, Generic[Tipo]):
+    @abstractmethod
+    def __init__(self, membro: Membro, indicado: Tipo, categoria: Categoria, ano: int):
       self.__membro = membro
       self.__indicado = indicado
       self.__categoria = categoria
       self.__ano = ano
 
-  @property
-  def membro(self):
-    return self.__membro
+    @property
+    def membro(self) -> Membro:
+      return self.__membro
 
-  @membro.setter
-  def membro(self, membro: Membro):
-    self.__membro = membro
+    @membro.setter
+    def membro(self, membro: Membro):
+      if not isinstance(membro, Membro):
+        raise TypeError("Membro inválido.")
+      self.__membro = membro
 
-  @property
-  def indicado(self): 
-    return self.__indicado
+    @property
+    def indicado(self): 
+      return self.__indicado
 
-  @indicado.setter
-  def indicado(self, indicado: Tipo):
-    self.__indicado = indicado
+    @indicado.setter
+    def indicado(self, indicado: Tipo):
+      self.__indicado = indicado
 
-  @property
-  def categoria(self): 
-    return self.__categoria
+    @property
+    def categoria(self) -> Categoria: 
+      return self.__categoria
 
-  @categoria.setter
-  def categoria(self, categoria: Categoria):
-    self.__categoria = categoria
+    @categoria.setter
+    def categoria(self, categoria: Categoria):
+      if not isinstance(categoria, Categoria):
+        raise TypeError("Categoria inválida.")
+      self.__categoria = categoria
 
-  @property
-  def ano(self):
-    return self.__ano
+    @property
+    def ano(self) -> int:
+      return self.__ano
 
-  @ano.setter
-  def ano(self, ano: int):
-    self.__ano = ano
+    @ano.setter
+    def ano(self, ano: int):
+      if not isinstance(ano, int):
+        raise TypeError("Ano de votação inválido.")
+      self.__ano = ano
