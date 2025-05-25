@@ -1,44 +1,49 @@
-class TelaDiretor:
-  
-  def tela_opcoes(self):
-    print("-------- DIRETORES ----------")
-    print("Escolha a opção")
-    print("1 - Incluir Diretor")
-    print("2 - Alterar Diretor")
-    print("3 - Listar Diretores")
-    print("4 - Excluir Diretor")
-    print("0 - Retornar")
+class TelaDiretor():
 
-    opcao = int(input("Escolha a opção: "))
-    return opcao
+    def tela_opcoes(self):
+        print("*" * 15,"INDICAÇÃO DE DIRETORES","*" * 15)
+        print("\n1. Adicionar diretor\n" \
+                "2. Alterar dados\n" \
+                "3. Listar diretores\n" \
+                "4. Remover diretor\n" \
+                "0. Menu\n")
+        
+        try: # se a entrada nao for um int entre 0 e 4
+            opcao = int(input("Escolha a opcao: "))
+            return opcao
+        except ValueError:
+            self.mostrar_mensagem("Opção inválida. Digite um número.")
+            return -1
+    
+    def pegar_dados_diretor(self):
+        print("*" * 15, "INDICAR DIRETOR", "*" * 15)
 
-  def pegar_dados_diretor(self):
-    print("-------- DADOS DIRETOR ----------")
-    id = int(input("ID: "))
-    nome = input("Nome: ")
-    data_nascimento = input("Data de nascimento (dd/mm/aaaa): ")
-    nacionalidade = input("Nacionalidade: ")
+        nome = input("\nNome: ").title()
+        nacionalidade = input("Nacionalidade: ").capitalize()
+        categoria = "Melhor Diretor"
+        filme = input("Filme: ").title()
+        
+        try: # se a entrada nao for um int
+         ano_indicacao = int(input("Ano de indicação: "))
+        except ValueError:
+         self.mostrar_mensagem("Ano inválido. Use apenas números.")
+        return None
+        
 
-    return {
-      "nome": nome,
-      "nacionalidade": nacionalidade
-      "categoria" : categoria
-      "filme" : filme
-      "ano_indicação" : ano_indicação  
-    }
+        return {"nome": nome, "nacionalidade": nacionalidade, "categoria": categoria, "filme": filme, "ano de indicacao": ano_indicacao}
+    
+    def mostrar_dados_diretor(self, dados_diretor):
+        print("Diretor: ", dados_diretor["nome"])
+        print("Nacionalidade: ", dados_diretor["nacionalidade"])
+        print("Categoria: ", dados_diretor["categoria"])
+        print("Filme: ", dados_diretor["filme"])
+        print("Ano de indicação: ", dados_diretor["ano de indicacao"])
+        print("\n")
 
-  def mostrar_diretor(self, dados_diretor):
-    print("NOME DO DIRETOR: ", dados_diretor["nome"])
-    print("CATEGORIA:  " ,dados_diretor["categoria"])
-    print("FILME:  " , dados_diretor["filme"])
-    print("ANO_INDICAÇÃO:  " dados_diretor["ano_indicação"])
-    print("NACIONALIDADE: ", dados_diretor["nacionalidade"])
-    print("\n")
+    def buscar_diretor(self):
+        diretor = input("Buscar diretor: ").title
+        return diretor
 
-  def selecionar_diretor(self):
-    id = int(input("ID do diretor que deseja selecionar: "))
-    return id
-
-  def mostrar_mensagem(self, msg):
-    print(msg)
+    def mostrar_mensagem(self, msg):
+        print(msg)
 
