@@ -410,9 +410,6 @@
             <mxPoint x="172" y="997" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-19" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="251" y="876" width="25" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="4xUSk28KJLsLeGUFMNTL-20" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;entryX=0.548;entryY=1.046;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-100" y="907" as="sourcePoint" />
@@ -424,12 +421,6 @@
             <mxPoint x="-100" y="905" as="sourcePoint" />
             <mxPoint x="-100" y="945" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-22" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="535" y="910" width="60" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-23" value="- tela_ator" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="553" y="725" width="114" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4xUSk28KJLsLeGUFMNTL-24" value="TelaSistema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
           <mxGeometry x="-254" y="945" width="314" height="155" as="geometry" />
