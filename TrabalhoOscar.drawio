@@ -580,7 +580,7 @@
           <mxGeometry y="71" width="258" height="34" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--9" value="ControladorSistema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="497" y="129" width="292" height="489" as="geometry" />
+          <mxGeometry x="499" y="3" width="292" height="489" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--10" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- controlador_ator: ControladorAtor&lt;/div&gt;&lt;div&gt;- controlador_diretor: ControladorDiretor&lt;/div&gt;&lt;div&gt;- controlador_filme: ControladorFilme&lt;/div&gt;&lt;div&gt;- controlador_membro: ControladorMembro&lt;/div&gt;&lt;div&gt;- controlador_categoria: ControladorCategoria&lt;/div&gt;&lt;div&gt;- controlador_voto: ControladorVoto&lt;/div&gt;&lt;div&gt;- controlador_voto_ator: ControladorVotoAtor&lt;/div&gt;&lt;div&gt;- controlador_voto_diretor: ControladorVotoDiretor&lt;/div&gt;&lt;div&gt;- controlador_voto_filme: ControladorVotoFilme&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="lw5g_Nmpsw-hIYmY-6z--9" vertex="1">
           <mxGeometry y="26" width="292" height="192" as="geometry" />
@@ -630,6 +630,22 @@
             <mxPoint x="125" y="176" as="sourcePoint" />
             <mxPoint x="-18" y="176" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="m9cNaFqcJfxcWcOEDgTl-1" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.289;entryY=1.013;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="wDt9VS9WS40ovMpgq8FK-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1723" y="263" as="sourcePoint" />
+            <mxPoint x="203" y="420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1723" y="614" />
+              <mxPoint x="201" y="626" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="I-WG-zHWevxW-UFshxvI-7" value="&lt;b&gt;0..&lt;/b&gt;*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1687" y="260" width="36" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="I-WG-zHWevxW-UFshxvI-8" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="176" y="407" width="25" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
