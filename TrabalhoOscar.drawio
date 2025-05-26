@@ -322,7 +322,7 @@
           <mxGeometry x="1570" y="974" width="70" height="31" as="geometry" />
         </mxCell>
         <mxCell id="mMFh9-WXGjXcuoTCb72p-9" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="814" y="1050" width="27" height="31" as="geometry" />
+          <mxGeometry x="854" y="1050" width="27" height="31" as="geometry" />
         </mxCell>
         <mxCell id="mMFh9-WXGjXcuoTCb72p-10" value="0..*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
           <mxGeometry x="2313" y="1363" width="42" height="31" as="geometry" />
@@ -376,6 +376,9 @@
         </mxCell>
         <mxCell id="mMFh9-WXGjXcuoTCb72p-24" value="0..*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
           <mxGeometry x="729" y="1468" width="42" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="mMFh9-WXGjXcuoTCb72p-25" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;- categorias&amp;nbsp;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="780" y="1054" width="79" height="31" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
