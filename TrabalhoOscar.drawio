@@ -580,7 +580,7 @@
           <mxGeometry y="71" width="258" height="34" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--9" value="ControladorSistema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="499" y="3" width="292" height="489" as="geometry" />
+          <mxGeometry x="-262" y="316" width="292" height="489" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--10" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- controlador_ator: ControladorAtor&lt;/div&gt;&lt;div&gt;- controlador_diretor: ControladorDiretor&lt;/div&gt;&lt;div&gt;- controlador_filme: ControladorFilme&lt;/div&gt;&lt;div&gt;- controlador_membro: ControladorMembro&lt;/div&gt;&lt;div&gt;- controlador_categoria: ControladorCategoria&lt;/div&gt;&lt;div&gt;- controlador_voto: ControladorVoto&lt;/div&gt;&lt;div&gt;- controlador_voto_ator: ControladorVotoAtor&lt;/div&gt;&lt;div&gt;- controlador_voto_diretor: ControladorVotoDiretor&lt;/div&gt;&lt;div&gt;- controlador_voto_filme: ControladorVotoFilme&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="lw5g_Nmpsw-hIYmY-6z--9" vertex="1">
           <mxGeometry y="26" width="292" height="192" as="geometry" />
