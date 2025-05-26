@@ -387,7 +387,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="WZgvneTV7CMxQMR7iooE" name="Página-2">
-    <mxGraphModel dx="2803" dy="1665" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2937" dy="1737" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -691,6 +691,21 @@
             <mxPoint x="-516" y="374" as="sourcePoint" />
             <mxPoint x="-387" y="323" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="JW7f73BWtHizZn9Ce7t2-1" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-512" y="243" width="25" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="JW7f73BWtHizZn9Ce7t2-2" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-512" y="353" width="25" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="DFoO3QTpM2NFcUkC0v7J-1" value="0..*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-775" y="204" width="36" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="DFoO3QTpM2NFcUkC0v7J-2" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-810" y="353" width="25" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="DFoO3QTpM2NFcUkC0v7J-3" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;-&lt;b style=&quot;&quot;&gt;filmes&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="262" y="97" width="60" height="28" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
