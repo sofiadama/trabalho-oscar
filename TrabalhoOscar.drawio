@@ -387,7 +387,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="WZgvneTV7CMxQMR7iooE" name="Página-2">
-    <mxGraphModel dx="3095" dy="1822" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="4673" dy="2673" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -471,7 +471,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="vicPNXlGaRBkFnli4pdK-1" value="VotoAtor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="884" y="130" width="310" height="121" as="geometry" />
+          <mxGeometry x="810" y="136" width="310" height="121" as="geometry" />
         </mxCell>
         <mxCell id="vicPNXlGaRBkFnli4pdK-2" value="- indicado: Ator" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="vicPNXlGaRBkFnli4pdK-1" vertex="1">
           <mxGeometry y="26" width="310" height="42" as="geometry" />
@@ -483,7 +483,7 @@
           <mxGeometry y="76" width="310" height="45" as="geometry" />
         </mxCell>
         <mxCell id="xrNCkcEP9iVFIpvB5Bgk-1" value="VotoDiretor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="1237" y="130" width="323" height="121" as="geometry" />
+          <mxGeometry x="1240" y="131" width="323" height="121" as="geometry" />
         </mxCell>
         <mxCell id="xrNCkcEP9iVFIpvB5Bgk-2" value="- indicado: Diretor" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="xrNCkcEP9iVFIpvB5Bgk-1" vertex="1">
           <mxGeometry y="26" width="323" height="42" as="geometry" />
@@ -495,7 +495,7 @@
           <mxGeometry y="76" width="323" height="45" as="geometry" />
         </mxCell>
         <mxCell id="YRxmMxPdK4UfHg5OfxDs-1" value="VotoFilme" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="1601" y="131" width="318" height="120" as="geometry" />
+          <mxGeometry x="1661" y="132" width="318" height="120" as="geometry" />
         </mxCell>
         <mxCell id="YRxmMxPdK4UfHg5OfxDs-2" value="- indicado: Filme" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="YRxmMxPdK4UfHg5OfxDs-1" vertex="1">
           <mxGeometry y="26" width="318" height="42" as="geometry" />
@@ -507,7 +507,7 @@
           <mxGeometry y="76" width="318" height="44" as="geometry" />
         </mxCell>
         <mxCell id="7WdbQqX6bfYjUGvpaG9f-1" value="&lt;i&gt;Voto&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="1231" y="-279" width="332" height="276" as="geometry" />
+          <mxGeometry x="1242" y="-279" width="332" height="276" as="geometry" />
         </mxCell>
         <mxCell id="7WdbQqX6bfYjUGvpaG9f-2" value="- membro: Membro&lt;div&gt;- indicado: Tipo&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- categoria: Categoria&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- ano_votacao: int&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="7WdbQqX6bfYjUGvpaG9f-1" vertex="1">
           <mxGeometry y="26" width="332" height="73" as="geometry" />
@@ -523,8 +523,8 @@
             <mxPoint x="807" y="125" as="sourcePoint" />
             <mxPoint x="1410" y="-3" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1039" y="68" />
-              <mxPoint x="1410" y="68" />
+              <mxPoint x="965" y="57" />
+              <mxPoint x="1410" y="61" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -533,8 +533,8 @@
             <mxPoint x="1772" y="127" as="sourcePoint" />
             <mxPoint x="1410" y="-2" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1772" y="68" />
-              <mxPoint x="1410" y="68" />
+              <mxPoint x="1835" y="61" />
+              <mxPoint x="1410" y="61" />
             </Array>
           </mxGeometry>
         </mxCell>
