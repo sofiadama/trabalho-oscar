@@ -74,10 +74,6 @@ class TelaVoto:
     def buscar_vencedor_por_categoria(self):
         categoria = input("Buscar vencedores na categoria: ").strip().title()
         return categoria
-    
-    def buscar_vencedor_por_nacionalidade(self):
-        nacionalidade = input("Buscar vencedores de nacionalidade: ").strip().title()
-        return nacionalidade
 
     def verificar_inteiro(self, msg=" ", opcoes_validas = None):
         while True:
