@@ -58,7 +58,7 @@ class ControladorMembro():
             self.__tela_membro.mostrar_mensagem("Nenhum membro cadastrado.")
             return
 
-        print("----- MEMBROS DA ACADEMIA -----\n")
+        print("." * 15," MEMBROS DA ACADEMIA","." * 15)
         for membro in self.__membros:
             self.__tela_membro.mostrar_dados_membro({
                 "id": membro.id, 

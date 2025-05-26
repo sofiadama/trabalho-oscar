@@ -50,7 +50,7 @@ class ControladorFilme():
             self.__tela_filme.mostrar_mensagem(str(e))   
 
     def listar_filmes(self):
-        print("----- FILMES INDICADOS -----\n")
+        print("." * 15,"FILMES INDICADOS","." * 15)
         if not self.__filmes_indicados:
             self.__tela_filme.mostrar_mensagem("\nNenhum filme indicado.")
             return
@@ -84,6 +84,7 @@ class ControladorFilme():
             self.__tela_filme.mostrar_mensagem(f"Nenhum filme indicado no ano de '{ano}'.")
             return
         
+        print()
         print("." * 15,f"INDICADOS NO ANO DE '{ano}'", "." * 15)
         for filme_filtrado in filmes_filtrados:
             self.__tela_filme.mostrar_dados_filme({
@@ -95,12 +96,13 @@ class ControladorFilme():
     
     def gerar_relatorio_por_categoria(self):
         categoria = self.__tela_filme.buscar_indicados_por_categoria().strip().title()
-        filmes_filtrados = [filme for filme in self.__filmes_indicados if filme.categoria == categoria]
+        filmes_filtrados = [filme for filme in self.__filmes_indicados if filme.categoria.titulo.strip().title() == categoria]
         
         if not filmes_filtrados:
             self.__tela_filme.mostrar_mensagem(f"Nenhum filme indicado na categoria '{categoria}'.")
             return
         
+        print()
         print("." * 15,f"INDICADOS NA CATEGORIA '{categoria}'", "." * 15)
         for filme_filtrado in filmes_filtrados:
             self.__tela_filme.mostrar_dados_filme({
@@ -161,7 +163,7 @@ class ControladorFilme():
             1: self.listar_filmes, 
             2: self.gerar_relatorio_por_ano,
             3: self.gerar_relatorio_por_categoria, 
-            0: self.retornar_menu
+            0: self.abrir_tela_filme
         }
 
         while True:

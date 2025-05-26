@@ -157,7 +157,7 @@ class ControladorDiretor():
         opcoes = {
             1: self.listar_diretores, 
             2: self.gerar_relatorio_por_ano, 
-            0: self.retornar_menu
+            0: self.abrir_tela_diretor
         }
 
         while True:

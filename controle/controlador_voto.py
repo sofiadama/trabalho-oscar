@@ -21,10 +21,12 @@ class ControladorVoto:
                         self.__membro_autenticado = membro
                         self.__controlador_sistema.escolher_tipo_de_voto()
                         return True
-    
+                        
                 self.__tela_voto.mostrar_mensagem("\nID não encontrado. Tente novamente.")
+                            
             except Exception as e:
-                self.__tela_voto.mostrar_mensagem(f"Erro ao autenticar membro:{e}.")
+                self.__tela_voto.mostrar_mensagem(f"Erro inesperado:{e}.")
+            
     
     def contar_votos_por_ano(self):
         ano_filtro = self.__tela_voto.buscar_vencedor_por_ano()
@@ -63,9 +65,10 @@ class ControladorVoto:
         return [voto for voto in votos_filtrados if voto.indicado in vencedores]
     
     def contar_filmes_mais_premiados(self):
+        votos_em_filmes = self.__controlador_sistema.controlador_voto_filme.pegar_votos_em_filmes()
         contagem_filmes = {}
-
-        for voto in self.__votos_gerais:
+        
+        for voto in votos_em_filmes:
             indicado = voto.indicado
             contagem_filmes[indicado] = contagem_filmes.get(indicado, 0) + 1
 

@@ -93,7 +93,7 @@ class ControladorVotoFilme:
     def verificar_voto_existente(self, dados_voto):
         membro = self.retornar_membro_autenticado()
         for voto in self.__votos_em_filmes:
-            if dados_voto["membro"].id == membro.id and voto.categoria == dados_voto["categoria"] and voto.ano == dados_voto["ano"]:
+            if membro.id == voto.membro.id and voto.categoria == dados_voto["categoria"] and voto.ano == dados_voto["ano"]:
                 print("Você já votou nessa categoria esse ano.")
                 return True
         return False
@@ -135,12 +135,16 @@ class ControladorVotoFilme:
             self.__tela_voto.mostrar_mensagem(f"\nNenhum voto no ano '{ano}'.")
             return
         
-        print("." * 15,f"VOTOS NO ANO DE '{ano}'", "." * 15)
+        print("." * 10,f"VOTOS NO ANO DE {ano}", "." * 10)
+        print()
         for i, voto in enumerate(votos_filtrados, 1):
             print(f"{i}. Membro: {voto.membro.nome}, Indicado: {voto.indicado}, Categoria: {voto.categoria.titulo}")
     
     def pegar_voto_por_ano(self, ano):
         return [voto for voto in self.__votos_em_filmes if voto.ano == ano]
+    
+    def pegar_votos_em_filmes(self):
+        return self.__votos_em_filmes
     
     def retornar_membro_autenticado(self):
         return self.__controlador_sistema.controlador_voto.pegar_membro_autenticado()

@@ -18,6 +18,9 @@ class ControladorCategoria():
             if categoria.titulo.strip().title() == titulo:
                 return categoria
         return None
+    
+    def pegar_categorias(self):
+        return self.__categorias
 
     def adicionar_categoria(self):
         try: #entrada invalida

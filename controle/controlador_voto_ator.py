@@ -80,7 +80,7 @@ class ControladorVotoAtor:
         membro = self.retornar_membro_autenticado()
 
         for voto in self.__votos_em_atores:
-            if dados_voto["membro"].id == membro.id and voto.categoria == dados_voto["categoria"] and voto.ano == dados_voto["ano"]:
+            if membro.id == voto.membro.id and voto.categoria == dados_voto["categoria"] and voto.ano == dados_voto["ano"]:
                 print("Você já votou nessa categoria esse ano.")
                 return True
         return False
@@ -102,18 +102,17 @@ class ControladorVotoAtor:
             self.__tela_voto.mostrar_mensagem(f"Erro inesperado: {e}")
 
     def gerar_relatorio_por_ano(self):
-        voto_filtrado = self.selecionar_voto()
+        ano = self.__tela_voto.buscar_voto_por_ano()
+        votos_filtrados = [voto for voto in self.__votos_em_atores if voto.ano == ano]
 
-        if not voto_filtrado:
+        if not votos_filtrados:
+            self.__tela_voto.mostrar_mensagem(f"Nenhum voto no ano de '{ano}'.")
             return
         
-        print("." * 10,"RELATÓRIO DO VOTO", "." * 10)
-        self.__tela_voto.mostrar_dados_voto({
-            "membro": voto_filtrado.membro.nome,
-            "indicado": voto_filtrado.indicado,
-            "categoria": voto_filtrado.categoria.titulo,
-            "ano": voto_filtrado.ano
-        })
+        print("." * 10,f"VOTOS NO ANO DE {ano}", "." * 10)
+        print()
+        for i, voto in enumerate(votos_filtrados, 1):
+            print(f"{i}. Membro: {voto.membro.nome}, Indicado: {voto.indicado}, Categoria: {voto.categoria.titulo}")
         
     def retornar_membro_autenticado(self):
         return self.__controlador_sistema.controlador_voto.pegar_membro_autenticado()

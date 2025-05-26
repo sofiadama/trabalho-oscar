@@ -145,7 +145,7 @@ class ControladorAtor():
         opcoes = {
             1: self.listar_atores, 
             2: self.gerar_relatorio_por_ano, 
-            0: self.retornar_menu
+            0: self.abrir_tela_ator
         }
 
         while True:
