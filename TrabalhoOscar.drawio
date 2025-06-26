@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.9">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.1.6">
   <diagram id="WZgvneTV7CMxQMR7iooE" name="Página-2">
-    <mxGraphModel dx="3250" dy="1566" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="5130" dy="2715" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -193,16 +193,16 @@
           <mxGeometry y="71" width="258" height="34" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--9" value="ControladorSistema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="-250" y="323" width="292" height="489" as="geometry" />
+          <mxGeometry x="727" y="720" width="319" height="489" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--10" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- controlador_ator: ControladorAtor&lt;/div&gt;&lt;div&gt;- controlador_diretor: ControladorDiretor&lt;/div&gt;&lt;div&gt;- controlador_filme: ControladorFilme&lt;/div&gt;&lt;div&gt;- controlador_membro: ControladorMembro&lt;/div&gt;&lt;div&gt;- controlador_categoria: ControladorCategoria&lt;/div&gt;&lt;div&gt;- controlador_voto: ControladorVoto&lt;/div&gt;&lt;div&gt;- controlador_voto_ator: ControladorVotoAtor&lt;/div&gt;&lt;div&gt;- controlador_voto_diretor: ControladorVotoDiretor&lt;/div&gt;&lt;div&gt;- controlador_voto_filme: ControladorVotoFilme&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="lw5g_Nmpsw-hIYmY-6z--9" vertex="1">
-          <mxGeometry y="26" width="292" height="192" as="geometry" />
+          <mxGeometry y="26" width="319" height="192" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--11" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" parent="lw5g_Nmpsw-hIYmY-6z--9" vertex="1">
-          <mxGeometry y="218" width="292" height="8" as="geometry" />
+          <mxGeometry y="218" width="319" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="lw5g_Nmpsw-hIYmY-6z--12" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__(titulo: str, sinopse: str, categoria: Categoria, ano_indicacao: int)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ iniciar_sistema()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ acessar_cadastros()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ acessar_indicacoes()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ acessar_votos()&lt;/div&gt;&lt;div&gt;+ cadastro_membros()&lt;/div&gt;&lt;div&gt;+ cadastro_categoria()&lt;/div&gt;&lt;div&gt;+ indicacao_ator()&lt;/div&gt;&lt;div&gt;+ indicacao_diretor()&lt;/div&gt;&lt;div&gt;+ indicacao_filme()&lt;/div&gt;&lt;div&gt;+ registro_voto()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="lw5g_Nmpsw-hIYmY-6z--9" vertex="1">
-          <mxGeometry y="226" width="292" height="263" as="geometry" />
+        <mxCell id="lw5g_Nmpsw-hIYmY-6z--12" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__(controlador_ator: ControladorAtor, controlador_diretor: ControladorDiretor, ...)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ iniciar_sistema()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ acessar_cadastros()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ acessar_indicacoes()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ acessar_votos()&lt;/div&gt;&lt;div&gt;+ cadastro_membros()&lt;/div&gt;&lt;div&gt;+ cadastro_categoria()&lt;/div&gt;&lt;div&gt;+ indicacao_ator()&lt;/div&gt;&lt;div&gt;+ indicacao_diretor()&lt;/div&gt;&lt;div&gt;+ indicacao_filme()&lt;/div&gt;&lt;div&gt;+ registro_voto()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="lw5g_Nmpsw-hIYmY-6z--9" vertex="1">
+          <mxGeometry y="226" width="319" height="263" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--13" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.011;exitY=1.041;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
           <mxGeometry x="-1" y="-10" relative="1" as="geometry">
@@ -261,7 +261,7 @@
           <mxGeometry x="226" y="407" width="25" height="26" as="geometry" />
         </mxCell>
         <mxCell id="UHoGQ-NpFLHVePg2tl5r-1" value="ControladorAtor" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="-994" y="382" width="244.5" height="237" as="geometry" />
+          <mxGeometry x="-746.25" y="1705" width="244.5" height="237" as="geometry" />
         </mxCell>
         <mxCell id="UHoGQ-NpFLHVePg2tl5r-4" value="" style="endArrow=none;html=1;rounded=0;" parent="UHoGQ-NpFLHVePg2tl5r-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -272,59 +272,32 @@
         <mxCell id="RXm5hDi4UW4JzS-sSqTy-1" value="&lt;div&gt;&lt;font&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__(controlador_sistema)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ adicionar_ator()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ alterar_ator()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ listar_atores()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ excluir_ator()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ gerar_relatorio_por_ano()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ pegar_ator_por_nome()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ pegar_atores_indicados()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;. . .&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ retornar_menu()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ abrir_tela_atores()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br style=&quot;text-wrap-mode: wrap;&quot;&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="UHoGQ-NpFLHVePg2tl5r-1" vertex="1">
           <mxGeometry x="6" y="54" width="248" height="185" as="geometry" />
         </mxCell>
-        <mxCell id="UHoGQ-NpFLHVePg2tl5r-2" value="TelaAtor" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
-          <mxGeometry x="-618" y="382" width="224" height="238" as="geometry" />
-        </mxCell>
-        <mxCell id="UHoGQ-NpFLHVePg2tl5r-5" value="" style="endArrow=none;html=1;rounded=0;" parent="UHoGQ-NpFLHVePg2tl5r-2" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="3.5" y="45.56999999999999" as="sourcePoint" />
-            <mxPoint x="215" y="46" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Dx9LT2ly6agnEQZ3StJk-1" value="&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;- CamposDaTela:&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;- id: int&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;- nome: str&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;- nacionalidade: str&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;- data_de_nascimento: str&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;text-wrap-mode: wrap; border-style: solid;&quot; size=&quot;1&quot;&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__(controlador)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;+ tela_opcoes()&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;+ pegar_dados_ator()&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;+ mostrar__dados_ator()&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;text-wrap-mode: wrap; margin: 0px 0px 0px 4px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;+ buscar_ator()&lt;/font&gt;&lt;/p&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="UHoGQ-NpFLHVePg2tl5r-2" vertex="1">
-          <mxGeometry x="3" y="53" width="219" height="181" as="geometry" />
-        </mxCell>
         <mxCell id="UHoGQ-NpFLHVePg2tl5r-3" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="-360" y="417" as="sourcePoint" />
-            <mxPoint x="-360" y="417" as="targetPoint" />
+            <mxPoint x="-488.25" y="2127" as="sourcePoint" />
+            <mxPoint x="-488.25" y="2127" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="payPW3eARCVdToALAEac-2" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;entryX=-0.004;entryY=0.236;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="tWcX_TVC5EfG5cA5Wzu7-3" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-810" y="381" as="sourcePoint" />
-            <mxPoint x="-745" y="251" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="-810" y="199" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="DFoO3QTpM2NFcUkC0v7J-1" value="0..*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-775" y="204" width="36" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="DFoO3QTpM2NFcUkC0v7J-2" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-810" y="353" width="25" height="26" as="geometry" />
         </mxCell>
         <mxCell id="DFoO3QTpM2NFcUkC0v7J-3" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;-&lt;b style=&quot;&quot;&gt;filmes&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="262" y="97" width="60" height="28" as="geometry" />
         </mxCell>
         <mxCell id="ZPv-jUp8wsbU5hzksXko-1" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
           <mxGeometry x="-1" y="3" relative="1" as="geometry">
-            <mxPoint x="-860" y="619" as="sourcePoint" />
-            <mxPoint x="-250" y="670.5" as="targetPoint" />
+            <mxPoint x="-35.25" y="1968" as="sourcePoint" />
+            <mxPoint x="574.75" y="2019.5" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="-860" y="619" />
-              <mxPoint x="-860" y="819" />
-              <mxPoint x="-385" y="819" />
-              <mxPoint x="-385" y="671" />
+              <mxPoint x="-35.25" y="1968" />
+              <mxPoint x="-35.25" y="2168" />
+              <mxPoint x="439.75" y="2168" />
+              <mxPoint x="439.75" y="2020" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="ZPv-jUp8wsbU5hzksXko-2" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-852" y="623" width="25" height="26" as="geometry" />
+          <mxGeometry x="529.75" y="1969" width="25" height="26" as="geometry" />
         </mxCell>
         <mxCell id="ZPv-jUp8wsbU5hzksXko-3" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-278" y="638" width="25" height="26" as="geometry" />
+          <mxGeometry x="-30.25" y="1961" width="25" height="26" as="geometry" />
         </mxCell>
         <mxCell id="XdremAVKssswszfVWiL7-1" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-16" y="143" width="25" height="26" as="geometry" />
@@ -341,28 +314,28 @@
         <mxCell id="0KWZ-w_929Gxy40p0JSm-1" value="&lt;b&gt;- categorias&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-1052" y="106" width="85" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-1" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;entryX=0.957;entryY=0.396;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="RXm5hDi4UW4JzS-sSqTy-1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-1" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;entryX=0.453;entryY=1.023;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="RXm5hDi4UW4JzS-sSqTy-1" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-647" y="509" as="sourcePoint" />
-            <mxPoint x="-667" y="527" as="targetPoint" />
+            <mxPoint x="-628.25" y="2042" as="sourcePoint" />
+            <mxPoint x="-619.9140000000002" y="1995.2600000000002" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-2" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;" edge="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-2" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;" parent="1" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-657" y="509" as="sourcePoint" />
-            <mxPoint x="-617" y="509" as="targetPoint" />
+            <mxPoint x="-628" y="2039" as="sourcePoint" />
+            <mxPoint x="-628" y="2076" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-3" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-655" y="515" width="60" height="30" as="geometry" />
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-3" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-318.25" y="2077" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-4" value="- tela_ator" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-692" y="478" width="85" height="30" as="geometry" />
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-4" value="- tela_ator" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-377.25" y="1848" width="85" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-5" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="-753.5" y="513" width="25" height="31" as="geometry" />
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-5" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;1&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="-217.25" y="1979" width="25" height="31" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-6" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=0.172;exitY=-0.048;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-6" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=0.172;exitY=-0.048;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
           <mxGeometry x="-1" y="-10" relative="1" as="geometry">
             <mxPoint x="863.3199999999997" y="134.98399999999992" as="sourcePoint" />
             <mxPoint x="-680" y="131" as="targetPoint" />
@@ -373,13 +346,13 @@
             <mxPoint x="7" y="3" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-7" value="&lt;b&gt;0..&lt;/b&gt;*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-7" value="&lt;b&gt;0..&lt;/b&gt;*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="867" y="94" width="36" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-9" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-9" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-713" y="96" width="25" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-10" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=0.545;exitY=1.148;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-10" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=0.545;exitY=1.148;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
           <mxGeometry x="-1" y="-10" relative="1" as="geometry">
             <mxPoint x="1416.0349999999999" y="253.65999999999985" as="sourcePoint" />
             <mxPoint x="-70" y="127.01999999999998" as="targetPoint" />
@@ -392,53 +365,110 @@
             <mxPoint x="7" y="3" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-11" value="&lt;b&gt;0..&lt;/b&gt;*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-11" value="&lt;b&gt;0..&lt;/b&gt;*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="1422" y="262" width="36" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-12" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-12" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-67" y="97" width="25" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-13" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-13" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-980" y="90" width="25" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-14" value="&lt;b&gt;0..&lt;/b&gt;*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-14" value="&lt;b&gt;0..&lt;/b&gt;*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="1411" y="-310" width="36" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-18" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-18" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="172" y="997" as="sourcePoint" />
-            <mxPoint x="172" y="997" as="targetPoint" />
+            <mxPoint x="80.75" y="2016" as="sourcePoint" />
+            <mxPoint x="80.75" y="2016" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-20" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;entryX=0.548;entryY=1.046;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-20" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;entryX=0.548;entryY=1.046;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-100" y="907" as="sourcePoint" />
-            <mxPoint x="-99.98399999999947" y="811.098" as="targetPoint" />
+            <mxPoint x="865" y="1986" as="sourcePoint" />
+            <mxPoint x="865.0160000000005" y="1890.098" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-21" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;" edge="1" parent="1">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-21" value="" style="endArrow=open;endFill=1;endSize=12;html=1;fontSize=12;curved=1;" parent="1" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-100" y="905" as="sourcePoint" />
-            <mxPoint x="-100" y="945" as="targetPoint" />
+            <mxPoint x="865" y="1984" as="sourcePoint" />
+            <mxPoint x="865" y="2024" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-24" value="TelaSistema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
-          <mxGeometry x="-254" y="945" width="314" height="155" as="geometry" />
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-24" value="TelaSistema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="711" y="2024" width="314" height="222" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-25" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" vertex="1" parent="4xUSk28KJLsLeGUFMNTL-24">
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-25" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" parent="4xUSk28KJLsLeGUFMNTL-24" vertex="1">
+          <mxGeometry y="26" width="314" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4xUSk28KJLsLeGUFMNTL-26" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ tela_opcoes_principais()&lt;/div&gt;&lt;div&gt;+ init_opcoes_principais()&lt;/div&gt;&lt;div&gt;+ tela_opcoes_cadastros()&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ init_opcoes_cadastros()&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ tela_opcoes_indicacoes()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ init_opcoes_indicacoes()&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ tela_opcoes_votos()&lt;/div&gt;&lt;div&gt;+ init_opcoes_votos()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="4xUSk28KJLsLeGUFMNTL-24" vertex="1">
+          <mxGeometry y="46" width="314" height="176" as="geometry" />
+        </mxCell>
+        <mxCell id="0VxNQRw9asoiBfBw45Y1-1" value="- tela_sistema" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="874" y="1989" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="00N67NTB1AjoRBGe-8FH-1" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="802" y="1888" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="00N67NTB1AjoRBGe-8FH-2" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="802" y="1993" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-4" value="TelaAtor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="-781" y="2077" width="314" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-5" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-4">
           <mxGeometry y="26" width="314" height="31" as="geometry" />
         </mxCell>
-        <mxCell id="4xUSk28KJLsLeGUFMNTL-26" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ tela_opcoes_principais()&lt;/div&gt;&lt;div&gt;+ tela_opcoes_cadastros()&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ tela_opcoes_indicacoes()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ tela_opcoes_votos()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="4xUSk28KJLsLeGUFMNTL-24">
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-6" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ tela_opcoes()&lt;/div&gt;&lt;div&gt;+ tela_filtros_de_relatorios()&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ tela_opcoes_indicacoes()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ tela_opcoes_votos()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-4">
           <mxGeometry y="57" width="314" height="98" as="geometry" />
         </mxCell>
-        <mxCell id="0VxNQRw9asoiBfBw45Y1-1" value="- tela_ator" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="-97" y="910" width="85" height="30" as="geometry" />
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-7" value="ControladorVoto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1535" y="1447" width="292" height="356" as="geometry" />
         </mxCell>
-        <mxCell id="00N67NTB1AjoRBGe-8FH-1" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="-163" y="809" width="85" height="30" as="geometry" />
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-8" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- voto_DAO: VotoDAO&lt;br&gt;&lt;/div&gt;&lt;div&gt;- membro_autenticado: None&lt;/div&gt;&lt;div&gt;- tela_voto: TelaVoto&lt;/div&gt;&lt;div&gt;-&amp;nbsp;controlador_sistema = ControladorSistema&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-7">
+          <mxGeometry y="26" width="292" height="93" as="geometry" />
         </mxCell>
-        <mxCell id="00N67NTB1AjoRBGe-8FH-2" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="-163" y="914" width="85" height="30" as="geometry" />
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-9" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-7">
+          <mxGeometry y="119" width="292" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-10" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__(membro_autenticado: None, controlador_sistema: ControladorSistema)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ autenticar_membro()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ contar_votos_por_ano()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ contar_votos_por_categoria()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ contar_filmes_mais_premiados()&lt;/div&gt;&lt;div&gt;+ listar_votos_gerais()&lt;/div&gt;&lt;div&gt;+ listar_vencedores_por_ano()&lt;/div&gt;&lt;div&gt;+ listar_vencedores_por_categoria()&lt;/div&gt;&lt;div&gt;+ retornar_menu()&lt;/div&gt;&lt;div&gt;+ abrir_filtro_vencedores()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-7">
+          <mxGeometry y="127" width="292" height="229" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-11" value="ControladorVotoAtor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1975" y="1447" width="292" height="397" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-12" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- voto_ator_DAO: VotoAtorDAO&lt;br&gt;&lt;/div&gt;&lt;div&gt;- tela_voto: TelaVoto&lt;/div&gt;&lt;div&gt;- tela_voto_ator: TelaVotoAtor&lt;/div&gt;&lt;div&gt;-&amp;nbsp;controlador_sistema = ControladorSistema&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-11">
+          <mxGeometry y="26" width="292" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-13" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-11">
+          <mxGeometry y="119" width="292" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-14" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__( controlador_sistema: ControladorSistema)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ adicionar_voto()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ alterar_voto()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ listar_votos()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ remover_voto()&lt;/div&gt;&lt;div&gt;+ verificar_ator_indicado()&lt;/div&gt;&lt;div&gt;+ verificar_voto_existente()&lt;/div&gt;&lt;div&gt;+ selecionar_voto()&lt;/div&gt;&lt;div&gt;+ gerar_relatorio_por_ano()&lt;/div&gt;&lt;div&gt;+ retornar_menu()&lt;/div&gt;&lt;div&gt;+ abrir_tela_voto_ator()&lt;/div&gt;&lt;div&gt;+ abrir_filtro_atores()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-11">
+          <mxGeometry y="127" width="292" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-15" value="ControladorVotoDiretor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2418" y="1447" width="292" height="397" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-16" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- voto_diretor_DAO: VotoDiretorDAO&lt;br&gt;&lt;/div&gt;&lt;div&gt;- tela_voto: TelaVoto&lt;/div&gt;&lt;div&gt;- tela_voto_diretor: TelaVotoDiretor&lt;/div&gt;&lt;div&gt;-&amp;nbsp;controlador_sistema = ControladorSistema&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-15">
+          <mxGeometry y="26" width="292" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-17" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-15">
+          <mxGeometry y="119" width="292" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-18" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__( controlador_sistema: ControladorSistema)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ adicionar_voto()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ alterar_voto()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ listar_votos()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ remover_voto()&lt;/div&gt;&lt;div&gt;+ verificar_diretor_indicado()&lt;/div&gt;&lt;div&gt;+ verificar_voto_existente()&lt;/div&gt;&lt;div&gt;+ selecionar_voto()&lt;/div&gt;&lt;div&gt;+ gerar_relatorio_por_ano()&lt;/div&gt;&lt;div&gt;+ retornar_menu()&lt;/div&gt;&lt;div&gt;+ abrir_tela_voto_diretor()&lt;/div&gt;&lt;div&gt;+ abrir_filtro_diretores()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-15">
+          <mxGeometry y="127" width="292" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-19" value="ControladorVotoFilme" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2866" y="1447" width="292" height="441" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-20" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- voto_filme_DAO: VotoFilmeDAO&lt;br&gt;&lt;/div&gt;&lt;div&gt;- tela_voto: TelaVoto&lt;/div&gt;&lt;div&gt;- tela_voto_filme: TelaVotoFilme&lt;/div&gt;&lt;div&gt;-&amp;nbsp;controlador_sistema = ControladorSistema&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-19">
+          <mxGeometry y="26" width="292" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-21" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-19">
+          <mxGeometry y="119" width="292" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="_fS8pHCnLdkIU9AXur5i-22" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__( controlador_sistema: ControladorSistema)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ adicionar_voto()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ alterar_voto()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ listar_votos()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ remover_voto()&lt;/div&gt;&lt;div&gt;+ verificar_filme_indicado()&lt;/div&gt;&lt;div&gt;+ verificar_categoria_cadastrada()&lt;/div&gt;&lt;div&gt;+ verificar_voto_existente()&lt;/div&gt;&lt;div&gt;+ selecionar_voto()&lt;/div&gt;&lt;div&gt;+ gerar_relatorio_por_categoria()&lt;/div&gt;&lt;div&gt;+ gerar_relatorio_por_ano()&lt;/div&gt;&lt;div&gt;+ retornar_menu()&lt;/div&gt;&lt;div&gt;+ abrir_tela_voto_filme()&lt;/div&gt;&lt;div&gt;+ abrir_filtro_filmes()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="_fS8pHCnLdkIU9AXur5i-19">
+          <mxGeometry y="127" width="292" height="314" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
