@@ -527,6 +527,27 @@
             <mxPoint x="2074" y="1324" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="Qyii_l-Z08Bnqk4i5YAU-2" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-964" y="1446" as="sourcePoint" />
+            <mxPoint x="-964" y="1344" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qyii_l-Z08Bnqk4i5YAU-3" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2079" y="1433" as="sourcePoint" />
+            <mxPoint x="2073" y="1331" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qyii_l-Z08Bnqk4i5YAU-8" value="name" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=top;rounded=0;" edge="1" parent="1">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="614" y="1316" as="sourcePoint" />
+            <mxPoint x="614" y="1191" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qyii_l-Z08Bnqk4i5YAU-9" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="Qyii_l-Z08Bnqk4i5YAU-8">
+          <mxGeometry x="-1" relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
