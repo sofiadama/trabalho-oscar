@@ -1,34 +1,59 @@
 from tela.tela_filme import TelaFilme
 from entidade.filme import Filme
+from DAOs.filme_dao import FilmeDAO
 
 class ControladorFilme():
     def __init__(self, controlador_sistema):
-        self.__filmes_indicados = []
-        self.__tela_filme = TelaFilme(controlador_sistema)
+        self.__filme_DAO = FilmeDAO()
+        self.__tela_filme = TelaFilme()
         self.__controlador_sistema = controlador_sistema
 
-    def adicionar_filme(self):
-        try: 
-            dados_filme = self.__tela_filme.pegar_dados_filme()
+    def pegar_filme_por_titulo(self, titulo: str):
+        try:
+            titulo = titulo.strip().title()
+        except AttributeError:
+            self.__tela_filme.mostrar_mensagem("Título inválido.")
+            return None
+        
+        filme = self.__filme_DAO.get(titulo)
+        if filme is not None:
+            return filme
+        else:
+            self.__tela_filme.mostrar_mensagem("Filme não foi cadastrado.")
+            return None
 
-            for filme in self.__filmes_indicados:
-                if filme.titulo == dados_filme["titulo"] and filme.sinopse == dados_filme["sinopse"]:
-                    self.__tela_filme.mostrar_mensagem("\nFilme já foi cadastrado.")
-                    return
+    def pegar_filmes_indicados(self):
+        return self.__filme_DAO.get_all()
+
+    def adicionar_filme(self):
+        try:
+            dados_filme = self.__tela_filme.pegar_dados_filme()
+            if not dados_filme:
+                return
+
+            titulo = dados_filme["titulo"].strip().title()
+            if self.__filme_DAO.get(titulo) is not None:
+                self.__tela_filme.mostrar_mensagem("\nFilme já foi cadastrado.")
+                return
+
+            categoria_obj = self.__controlador_sistema.controlador_categoria.pegar_categoria_por_titulo(dados_filme["categoria"])
+            if not categoria_obj:
+                self.__tela_filme.mostrar_mensagem(f"Categoria '{dados_filme['categoria']}' não cadastrada.")
+                return
+
+            ano = int(dados_filme["ano_indicacao"])
 
             novo_filme = Filme(
-                dados_filme["titulo"],
+                titulo,
                 dados_filme["sinopse"],
-                dados_filme["categoria"],
-                dados_filme["ano_indicacao"]
+                categoria_obj,
+                ano
             )
-            self.__filmes_indicados.append(novo_filme)
+            self.__filme_DAO.add(novo_filme)
             self.__tela_filme.mostrar_mensagem("\nFilme cadastrado com sucesso!")
 
-        except AttributeError as e: # pega erro no dicionario 
-            self.__tela_filme.mostrar_mensagem(str(e))
-        except KeyError as e:
-            self.__tela_filme.mostrar_mensagem(f"Campo faltando: {e}")
+        except (AttributeError, KeyError, ValueError) as e:
+            self.__tela_filme.mostrar_mensagem(f"Erro ao cadastrar filme: {e}")
 
     def alterar_dados(self):
         try:
@@ -40,101 +65,97 @@ class ControladorFilme():
                 return
                 
             novos_dados_filme = self.__tela_filme.pegar_dados_filme()
-            filme.titulo = novos_dados_filme["titulo"]
+            if not novos_dados_filme:
+                return
+
+            categoria_obj = self.__controlador_sistema.controlador_categoria.pegar_categoria_por_titulo(novos_dados_filme["categoria"])
+            if not categoria_obj:
+                self.__tela_filme.mostrar_mensagem(f"Categoria '{novos_dados_filme['categoria']}' não cadastrada.")
+                return
+
+            ano = int(novos_dados_filme["ano_indicacao"])
+
+            self.__filme_DAO.remove(filme.titulo)
+            filme.titulo = novos_dados_filme["titulo"].strip().title()
             filme.sinopse = novos_dados_filme["sinopse"]
-            filme.categoria = novos_dados_filme["categoria"]
-            filme.ano_indicacao = novos_dados_filme["ano_indicacao"]
+            filme.categoria = categoria_obj
+            filme.ano_indicacao = ano
+            self.__filme_DAO.add(filme)
             self.__tela_filme.mostrar_mensagem("\nDados do filme alterados com sucesso!")
 
-        except AttributeError as e:
-            self.__tela_filme.mostrar_mensagem(str(e))   
+        except (AttributeError, KeyError, ValueError) as e:
+            self.__tela_filme.mostrar_mensagem(f"Erro ao alterar filme: {e}")
 
     def listar_filmes(self):
-        print("." * 15,"FILMES INDICADOS","." * 15)
-        if not self.__filmes_indicados:
+        filmes = self.__filme_DAO.get_all()
+        if not filmes:
             self.__tela_filme.mostrar_mensagem("\nNenhum filme indicado.")
             return
         
-        for filme in self.__filmes_indicados:
-            self.__tela_filme.mostrar_dados_filme({
+        dados_filmes = []
+        for filme in filmes:
+            dados_filmes.append({
                 "titulo": filme.titulo, 
                 "sinopse": filme.sinopse,
-                "categoria": filme.categoria,
+                "categoria": filme.categoria.titulo if hasattr(filme.categoria, 'titulo') else str(filme.categoria),
                 "ano_indicacao": filme.ano_indicacao 
             })
-
+        
+        self.__tela_filme.mostrar_dados_filme(dados_filmes)
+        
     def remover_filme(self):
         titulo = self.__tela_filme.buscar_filme_por_titulo()
         filme = self.pegar_filme_por_titulo(titulo)
     
         try:
             if filme is not None:
-                self.__filmes_indicados.remove(filme)
+                self.__filme_DAO.remove(filme.titulo)
                 self.__tela_filme.mostrar_mensagem("\nFilme removido com sucesso!")
-            else: #se tentar remover filme que nao está na lista 
+            else:
                 raise LookupError("Filme não foi indicado.")
         except LookupError as e:
             self.__tela_filme.mostrar_mensagem(str(e))
     
     def gerar_relatorio_por_ano(self):
         ano = self.__tela_filme.buscar_indicados_por_ano()
-        filmes_filtrados = [filme for filme in self.__filmes_indicados if filme.ano_indicacao == ano]
+        try:
+            ano = int(ano)
+        except (TypeError, ValueError):
+            self.__tela_filme.mostrar_mensagem("Ano inválido.")
+            return
+
+        filmes_filtrados = [filme for filme in self.__filme_DAO.get_all() if filme.ano_indicacao == ano]
         
         if not filmes_filtrados:
             self.__tela_filme.mostrar_mensagem(f"Nenhum filme indicado no ano de '{ano}'.")
             return
         
-        print()
-        print("." * 15,f"INDICADOS NO ANO DE '{ano}'", "." * 15)
-        for filme_filtrado in filmes_filtrados:
-            self.__tela_filme.mostrar_dados_filme({
-                "titulo": filme_filtrado.titulo, 
-                "sinopse": filme_filtrado.sinopse,
-                "categoria": filme_filtrado.categoria,
-                "ano_indicacao": filme_filtrado.ano_indicacao 
-            })
+        mensagem = f"............... INDICADOS NO ANO DE '{ano}' ...............\n"
+        for i, filme_filtrado in enumerate(filmes_filtrados, 1):
+            categoria = filme_filtrado.categoria.titulo if hasattr(filme_filtrado.categoria, 'titulo') else str(filme_filtrado.categoria)
+            mensagem += f"{i}. Filme: {filme_filtrado.titulo}, Sinopse: {filme_filtrado.sinopse}, Categoria: {categoria}, Ano de Indicação: {filme_filtrado.ano_indicacao}\n"
+
+        self.__tela_filme.mostrar_mensagem(mensagem)
     
     def gerar_relatorio_por_categoria(self):
         categoria = self.__tela_filme.buscar_indicados_por_categoria().strip().title()
-        filmes_filtrados = [filme for filme in self.__filmes_indicados if filme.categoria.titulo.strip().title() == categoria]
+        filmes_filtrados = [
+            filme for filme in self.__filme_DAO.get_all()
+            if (hasattr(filme.categoria, 'titulo') and filme.categoria.titulo.strip().title() == categoria)
+            or (isinstance(filme.categoria, str) and filme.categoria.strip().title() == categoria)
+        ]
         
         if not filmes_filtrados:
             self.__tela_filme.mostrar_mensagem(f"Nenhum filme indicado na categoria '{categoria}'.")
             return
         
-        print()
-        print("." * 15,f"INDICADOS NA CATEGORIA '{categoria}'", "." * 15)
-        for filme_filtrado in filmes_filtrados:
-            self.__tela_filme.mostrar_dados_filme({
-                "titulo": filme_filtrado.titulo, 
-                "sinopse": filme_filtrado.sinopse,
-                "categoria": filme_filtrado.categoria,
-                "ano_indicacao": filme_filtrado.ano_indicacao 
-            })
-        
-    def pegar_filme_por_titulo(self, titulo: str):
-        try: # se digitar titulo que nao está na lista 
-            titulo = titulo.strip().title()
-        except AttributeError:
-            self.__tela_filme.mostrar_mensagem("Título inválido.")
-            return None
-        
-        filmes_encontrados = [filme for filme in self.__filmes_indicados if filme.titulo == titulo]
+        mensagem = f"............... INDICADOS NA CATEGORIA '{categoria}' ...............\n"
+        for i, filme_filtrado in enumerate(filmes_filtrados, 1):
+            categoria_nome = filme_filtrado.categoria.titulo if hasattr(filme_filtrado.categoria, 'titulo') else str(filme_filtrado.categoria)
+            mensagem += f"{i}. Filme: {filme_filtrado.titulo}, Sinopse: {filme_filtrado.sinopse}, Categoria: {categoria_nome}, Ano de Indicação: {filme_filtrado.ano_indicacao}\n"
 
-        try:
-            if len(filmes_encontrados) == 1:
-                return filmes_encontrados[0]
-            elif len(filmes_encontrados) > 1:
-                raise LookupError("Há mais de um filme com esse título.")
-            else:
-                raise LookupError("Filme não foi cadastrado.")
-        except LookupError as e:
-            self.__tela_filme.mostrar_mensagem(str(e))
-            return None
-    
-    def pegar_filmes_indicados(self):
-        return self.__filmes_indicados
-    
+        self.__tela_filme.mostrar_mensagem(mensagem)
+        
     def retornar_menu(self):
         self.__controlador_sistema.abrir_submenu_indicacoes()
     
@@ -168,8 +189,10 @@ class ControladorFilme():
 
         while True:
             try:
-                opcoes[self.__tela_filme.tela_filtros_de_relatorios()]()
+                op = self.__tela_filme.tela_filtros_de_relatorios()
+                if op in opcoes:
+                    opcoes[op]()
+                else:
+                    self.__tela_filme.mostrar_mensagem("Opção inválida!")
             except KeyError:
                 self.__tela_filme.mostrar_mensagem("Opção inválida!")
-
-

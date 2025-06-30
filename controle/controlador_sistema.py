@@ -24,6 +24,8 @@ class ControladorSistema:
         self.__controlador_voto_filme = ControladorVotoFilme(self)
         self.__tela_voto = TelaVoto()
         self.__tela_sistema = TelaSistema()
+        
+        self.__controlador_voto.carregar_votos_gerais()
     
     @property
     def controlador_ator(self):

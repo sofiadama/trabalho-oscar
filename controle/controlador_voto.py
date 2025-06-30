@@ -1,4 +1,5 @@
 from tela.tela_voto import TelaVoto
+from exceções.id_nao_encontrado_exception import IDNaoEncontradoException
 
 class ControladorVoto:
     def __init__(self, controlador_sistema):
@@ -15,19 +16,26 @@ class ControladorVoto:
         while True:
             try:
                 id_membro = self.__tela_voto.autenticacao_membro()
+                
+                if id_membro is None:
+                    return False
+                
+                id_membro = int(id_membro)
+                
                 lista_membros = self.__controlador_sistema.controlador_membro.pegar_lista_membros()
                 for membro in lista_membros:
                     if membro.id == id_membro:
                         self.__membro_autenticado = membro
                         self.__controlador_sistema.escolher_tipo_de_voto()
-                        return True
-                        
-                self.__tela_voto.mostrar_mensagem("\nID não encontrado. Tente novamente.")
-                            
+                        return True 
+                raise IDNaoEncontradoException("ID não encontrado. Tente novamente.")
+            except IDNaoEncontradoException as e:
+                self.__tela_voto.mostrar_mensagem(str(e))     
+            except ValueError:
+                self.__tela_voto.mostrar_mensagem("Por favor, digite apenas números.")
             except Exception as e:
                 self.__tela_voto.mostrar_mensagem(f"Erro inesperado:{e}.")
             
-    
     def contar_votos_por_ano(self):
         ano_filtro = self.__tela_voto.buscar_vencedor_por_ano()
         contagem_por_ano = {}
@@ -35,34 +43,46 @@ class ControladorVoto:
         votos_filtrados = [voto for voto in self.__votos_gerais if voto.ano == ano_filtro]
 
         if not votos_filtrados:
-            self.__tela_voto.mostrar_mensagem("Nenhum voto encontrado para o ano.")
+            self.__tela_voto.mostrar_mensagem(f"Nenhum voto encontrado para o ano '{ano_filtro}'.")
             return None 
-        
+
         for voto in votos_filtrados:
             contagem_por_ano[voto.indicado] = contagem_por_ano.get(voto.indicado, 0) + 1
 
         mais_votados = max(contagem_por_ano.values())
         vencedores = [indicado for indicado, votos in contagem_por_ano.items() if votos == mais_votados]
 
-        return [voto for voto in votos_filtrados if voto.indicado in vencedores]
+        votos_vencedores = []
+        for vencedor in vencedores:
+            for voto in votos_filtrados:
+                if voto.indicado == vencedor:
+                    votos_vencedores.append(voto)
+                    break
+        return votos_vencedores
     
     def contar_votos_por_categoria(self):
         categoria_filtro = self.__tela_voto.buscar_vencedor_por_categoria().strip().title()
         contagem_por_categoria = {}
 
-        votos_filtrados = [voto for voto in self.__votos_gerais if voto.categoria.titulo == categoria_filtro] # Filtra os votos que pertencem à categoria desejada
+        votos_filtrados = [voto for voto in self.__votos_gerais if voto.categoria.titulo == categoria_filtro]
 
         if not votos_filtrados:
-            self.__tela_voto.mostrar_mensagem("Nenhum voto encontrado para a categoria.")
-            return None  # Retorna None se não houver votos
-        
+            self.__tela_voto.mostrar_mensagem(f"Nenhum voto encontrado para a categoria '{categoria_filtro}'.")
+            return None  
+
         for voto in votos_filtrados:
-            contagem_por_categoria[voto.indicado] = contagem_por_categoria.get(voto.indicado, 0) + 1 # Conta os votos por indicado
+            contagem_por_categoria[voto.indicado] = contagem_por_categoria.get(voto.indicado, 0) + 1
 
         mais_votados = max(contagem_por_categoria.values())  
         vencedores = [indicado for indicado, votos in contagem_por_categoria.items() if votos == mais_votados]      
-        
-        return [voto for voto in votos_filtrados if voto.indicado in vencedores]
+
+        votos_vencedores = []
+        for vencedor in vencedores:
+            for voto in votos_filtrados:
+                if voto.indicado == vencedor:
+                    votos_vencedores.append(voto)
+                    break
+        return votos_vencedores
     
     def contar_filmes_mais_premiados(self):
         votos_em_filmes = self.__controlador_sistema.controlador_voto_filme.pegar_votos_em_filmes()
@@ -75,19 +95,32 @@ class ControladorVoto:
         filmes_mais_premiados = list(contagem_filmes.keys())[:3]
         return filmes_mais_premiados
     
+    def carregar_votos_gerais(self):
+        votos_ator = self.__controlador_sistema.controlador_voto_ator.pegar_votos_em_atores()
+        votos_diretor = self.__controlador_sistema.controlador_voto_diretor.pegar_votos_em_diretores()
+        votos_filme = self.__controlador_sistema.controlador_voto_filme.pegar_votos_em_filmes()
+        
+        self.__votos_gerais = []
+        self.__votos_gerais.extend(votos_filme)
+        self.__votos_gerais.extend(votos_ator)
+        self.__votos_gerais.extend(votos_diretor)
+    
     def listar_votos_gerais(self):         
         if not self.__votos_gerais:
             self.__tela_voto.mostrar_mensagem("Nenhum voto registrado.")
             return
 
-        print("." * 15,"VOTOS GERAIS","." * 15)
+        dados_votos = []
         for voto in self.__votos_gerais:
-            self.__tela_voto.mostrar_dados_voto({
+            categoria_titulo = voto.categoria.titulo if hasattr(voto.categoria, 'titulo') else str(voto.categoria)
+            indicado_nome = voto.indicado.titulo if hasattr(voto.indicado, 'titulo') else str(voto.indicado)
+            dados_votos.append({
                 "membro": voto.membro.nome,
-                "indicado": voto.indicado,
-                "categoria": voto.categoria.titulo,
+                "indicado": indicado_nome,
+                "categoria": categoria_titulo,
                 "ano": voto.ano
             })
+        self.__tela_voto.mostrar_dados_voto(dados_votos)
     
     def listar_vencedores_por_ano(self):
         vencedores = self.contar_votos_por_ano()
@@ -96,9 +129,18 @@ class ControladorVoto:
             self.__tela_voto.mostrar_mensagem("Nenhum vencedor encontrado.")
             return
         
-        print("." * 15, f"VENCEDORES NO ANO DE '{vencedores[0].ano}'", "." * 15)
+        mensagem = f"=========== VENCEDORES NO ANO DE '{vencedores[0].ano}' ===========\n"
         for i, vencedor in enumerate(vencedores, start=1):
-            print(f"{i}. {vencedor.indicado}")
+            indicado = vencedor.indicado
+            if hasattr(indicado, 'titulo'):
+                indicado_nome = indicado.titulo
+            elif hasattr(indicado, 'nome'):
+                indicado_nome = indicado.nome
+            else:
+                indicado_nome = str(indicado)
+            mensagem += f"{i}. {indicado_nome}\n"
+    
+        self.__tela_voto.mostrar_mensagem(mensagem)
             
     def listar_vencedores_por_categoria(self):
         vencedores = self.contar_votos_por_categoria()
@@ -107,9 +149,18 @@ class ControladorVoto:
             self.__tela_voto.mostrar_mensagem("Nenhum vencedor encontrado.")
             return
         
-        print("." * 15, f"VENCEDORES NA CATEGORIA '{vencedores[0].categoria.titulo}'", "." * 15)
+        mensagem = f"========= VENCEDORES NA CATEGORIA '{vencedores[0].categoria.titulo}' =========\n"
         for i, vencedor in enumerate(vencedores, start=1):
-            print(f"{i}. {vencedor.indicado}")
+            indicado = vencedor.indicado
+            if hasattr(indicado, 'titulo'):
+                indicado_nome = indicado.titulo
+            elif hasattr(indicado, 'nome'):
+                indicado_nome = indicado.nome
+            else:
+                indicado_nome = str(indicado)
+            mensagem += f"{i}. {indicado_nome}\n"
+        
+        self.__tela_voto.mostrar_mensagem(mensagem)
     
     def listar_filmes_mais_premiados(self):
         filmes_mais_premiados = self.contar_filmes_mais_premiados()
@@ -118,9 +169,12 @@ class ControladorVoto:
             self.__tela_voto.mostrar_mensagem("Nenhum filme encontrado.")
             return
 
-        print("." * 15, "TOP 3 FILMES MAIS PREMIADOS", "." * 15)
+        mensagem = "============= TOP 3 FILMES MAIS PREMIADOS =============\n"
         for i, filme in enumerate(filmes_mais_premiados, start=1):
-            print(f"{i}. {filme}")
+            filme_titulo = filme.titulo if hasattr(filme.titulo, 'titulo') else str(filme.titulo)
+            mensagem += f"{i}. {filme_titulo}\n"
+        
+        self.__tela_voto.mostrar_mensagem(mensagem)
 
     def pegar_membro_autenticado(self):
         return self.__membro_autenticado
@@ -144,4 +198,4 @@ class ControladorVoto:
             try:
                 opcoes[self.__tela_voto.tela_filtros_de_relatorios()]()
             except KeyError:
-                print("Opção inválida!")
+                self.__tela_voto.mostrar_mensagem("Opção inválida!")
