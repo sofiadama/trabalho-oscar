@@ -44,3 +44,11 @@ class Membro:
         if not isinstance(nacionalidade, str):
             raise TypeError("Nacionalidade inválida.")
         self.__nacionalidade = nacionalidade
+    
+    def __eq__(self, other):
+        if isinstance(other, Membro):
+            return self.id == other.id
+        return False
+
+    def __hash__(self):
+        return hash(self.id)

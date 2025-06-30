@@ -2,7 +2,7 @@ from entidade.categoria import Categoria
 
 class Filme:
     def __init__(self, titulo: str, sinopse: str, categoria: Categoria, ano_indicacao: int):
-        self.__titulo = titulo
+        self.__titulo = titulo 
         self.__sinopse = sinopse
         self.__categoria = categoria
         self.__ano_indicacao = ano_indicacao
@@ -46,3 +46,11 @@ class Filme:
         if not isinstance(ano_indicacao, int):
             raise TypeError("Ano de indicação inválido.")
         self.__ano_indicacao = ano_indicacao
+        
+    def __eq__(self, other):
+        if isinstance(other, Filme):
+            return self.titulo.strip().lower() == other.titulo.strip().lower()
+        return False
+
+    def __hash__(self):
+        return hash(self.titulo.strip().lower())
