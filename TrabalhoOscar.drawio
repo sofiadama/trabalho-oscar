@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.0.9">
   <diagram id="WZgvneTV7CMxQMR7iooE" name="Página-2">
-    <mxGraphModel dx="3095" dy="1822" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2937" dy="1737" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -193,7 +193,7 @@
           <mxGeometry y="71" width="258" height="34" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--9" value="ControladorSistema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="386" y="2140" width="319" height="489" as="geometry" />
+          <mxGeometry x="280" y="1783" width="319" height="489" as="geometry" />
         </mxCell>
         <mxCell id="lw5g_Nmpsw-hIYmY-6z--10" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- controlador_ator: ControladorAtor&lt;/div&gt;&lt;div&gt;- controlador_diretor: ControladorDiretor&lt;/div&gt;&lt;div&gt;- controlador_filme: ControladorFilme&lt;/div&gt;&lt;div&gt;- controlador_membro: ControladorMembro&lt;/div&gt;&lt;div&gt;- controlador_categoria: ControladorCategoria&lt;/div&gt;&lt;div&gt;- controlador_voto: ControladorVoto&lt;/div&gt;&lt;div&gt;- controlador_voto_ator: ControladorVotoAtor&lt;/div&gt;&lt;div&gt;- controlador_voto_diretor: ControladorVotoDiretor&lt;/div&gt;&lt;div&gt;- controlador_voto_filme: ControladorVotoFilme&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="lw5g_Nmpsw-hIYmY-6z--9" vertex="1">
           <mxGeometry y="26" width="319" height="192" as="geometry" />
