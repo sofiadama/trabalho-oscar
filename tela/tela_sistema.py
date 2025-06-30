@@ -1,63 +1,138 @@
+import PySimpleGUI as sg
+
 class TelaSistema:
+    def __init__(self):
+        self.__window = None
 
     def tela_opcoes_principais(self):
-        print()
-        print("*" * 15,"OSCARS MENU","*" * 15)
-
-        print("\n1. Cadastros\n" \
-                "2. Indicações\n" \
-                "3. Votações\n" \
-                "0. Sair")
+        self.init_opcoes_principais()
+        event, values = self.__window.read()
+        opcao = 0
         
-        opcao = self.verificar_inteiro("\nDigite a opção: ", [0,1,2,3])
-        return opcao
-
-    def tela_opcoes_cadastros(self):
-        print("." * 15,"CADASTROS","." * 15)
-
-        print("\n1. Cadastro de Membros\n" \
-                "2. Cadastro de Categorias\n" \
-                "0. Menu Principal")
-        
-        opcao = self.verificar_inteiro("\nDigite a opção: ", [0,1,2])
-        return opcao
-
-    def tela_opcoes_indicacoes(self):
-        print("." * 15,"INDICAÇÕES","." * 15)
-
-        print("\n1. Indicações de Atores\n" \
-                "2. Indicações de Diretores\n" \
-                "3. Indicações de Filmes\n" \
-                "0. Menu Principal")
-        
-        opcao = self.verificar_inteiro("\nDigite a opção: ", [0,1,2,3])
-        return opcao
-
-    def tela_opcoes_votos(self):
-        print("." * 15,"VOTOS","." * 15)
-
-        print("\n1. Registros de Votações\n" \
-                "2. Relatórios de Vencedores\n" \
-                "0. Menu Principal")
-        
-        opcao = self.verificar_inteiro("\nDigite a opção: ", [0,1,2])
+        if event in (sg.WIN_CLOSED, 'Cancelar', None):
+            opcao = 0
+        elif values['1']:
+            opcao = 1
+        elif values['2']:
+            opcao = 2
+        elif values['3']:
+            opcao = 3
+        elif values['0']:
+            opcao = 0
+            
+        self.close()
         return opcao
     
-    def verificar_inteiro(self, msg=" ", opcoes_validas = None):
-        while True:
-            entrada = input(msg)
-            try:
-                numero_int = int(entrada) 
-                if opcoes_validas and numero_int not in opcoes_validas:
-                    raise ValueError
-                return numero_int
-            except ValueError:
-                print("\nValor incorreto!")
-                if opcoes_validas:
-                    print("Valores válidos: ", opcoes_validas)
+    def init_opcoes_principais(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("========= SISTEMA DE VOTAÇÕES =========", font=("Helvetica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvetica", 15))],
+            [sg.Radio('Cadastros', "RD1", key='1')],
+            [sg.Radio('Indicações', "RD1", key='2')],
+            [sg.Radio('Votações', "RD1", key='3')],
+            [sg.Radio('Sair', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema de votos', layout)
+
+    def tela_opcoes_cadastros(self):
+        self.init_opcoes_cadastros()
+        event, values = self.__window.read()
+        opcao = 0
+        
+        if event in (sg.WIN_CLOSED, 'Cancelar', None):
+            opcao = 0
+        elif values['1']:
+            opcao = 1
+        elif values['2']:
+            opcao = 2
+        elif values['0']:
+            opcao = 0
+            
+        self.close()
+        return opcao
+    
+    def init_opcoes_cadastros(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("=========== CADASTROS ===========", font=("Helvetica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvetica", 15))],
+            [sg.Radio('Cadastro de Membros', "RD1", key='1')],
+            [sg.Radio('Cadastro de Categorias', "RD1", key='2')],
+            [sg.Radio('Menu Principal', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema de votos', layout)
+
+    def tela_opcoes_indicacoes(self):
+        self.init_opcoes_indicacoes()
+        event, values = self.__window.read()
+        opcao = 0
+        
+        if event in (sg.WIN_CLOSED, 'Cancelar', None):
+            opcao = 0
+        elif values['1']:
+            opcao = 1
+        elif values['2']:
+            opcao = 2
+        elif values['3']:
+            opcao = 3
+        elif values['0']:
+            opcao = 0
+            
+        self.close()
+        return opcao
+    
+    def init_opcoes_indicacoes(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("=========== INDICAÇÕES ===========", font=("Helvetica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvetica", 15))],
+            [sg.Radio('Indicações de Atores', "RD1", key='1')],
+            [sg.Radio('Indicações de Diretores', "RD1", key='2')],
+            [sg.Radio('Indicações de Filmes', "RD1", key='3')],
+            [sg.Radio('Menu Principal', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema de votos', layout)
+
+    def tela_opcoes_votos(self):
+        self.init_opcoes_votos()
+        event, values = self.__window.read()
+        opcao = 0
+        
+        if event in (sg.WIN_CLOSED, 'Cancelar', None):
+            opcao = 0
+        elif values['1']:
+            opcao = 1
+        elif values['2']:
+            opcao = 2
+        elif values['0']:
+            opcao = 0
+            
+        self.close()
+        return opcao
+    
+    def init_opcoes_votos(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("=========== VOTOS ===========", font=("Helvetica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvetica", 15))],
+            [sg.Radio('Votações', "RD1", key='1')],
+            [sg.Radio('Relatórios', "RD1", key='2')],
+            [sg.Radio('Menu Principal', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema de votos', layout)
 
     def mostrar_mensagem(self, msg):
-        print(msg)
+        sg.popup("", msg)
 
+    def close(self):
+        if self.__window:
+            self.__window.close()
 
-
+    def open(self):
+        event, values = self.__window.read()
+        return event, values

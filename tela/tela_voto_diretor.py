@@ -1,39 +1,80 @@
+import PySimpleGUI as sg
+
 class TelaVotoDiretor:
+    def __init__(self):
+        self.__window = None
     
     def tela_votos_em_diretores(self):
-        print("." * 15,"VOTOS EM DIRETORES","." * 15)
-
-        print("\n1. Adicionar Voto\n" \
-                "2. Alterar Voto\n" \
-                "3. Listar Votos\n" \
-                "4. Remover Voto\n" \
-                "0. Menu de Votos")
+        self.init_opcoes_votos()
+        event, values = self.__window.read()
+        opcao = 0
         
-        opcao = self.verificar_inteiro("\nDigite a opção: ", [0,1,2,3,4])
+        if event in (sg.WIN_CLOSED, 'Cancelar', None):
+            opcao = 0
+        elif values['1']:
+            opcao = 1
+        elif values['2']:
+            opcao = 2
+        elif values['3']:
+            opcao = 3
+        elif values['4']:
+            opcao = 4 
+        elif values['0']:
+            opcao = 0
+            
+        self.close()
         return opcao
+    
+    def init_opcoes_votos(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("========== VOTOS EM DIRETORES ==========", font=("Helvetica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvetica", 15))],
+            [sg.Radio('Adicionar Voto', "RD1", key='1')],
+            [sg.Radio('Alterar Voto', "RD1", key='2')],
+            [sg.Radio('Listar Votos', "RD1", key='3')],
+            [sg.Radio('Excluir Voto', "RD1", key='4')],
+            [sg.Radio('Menu de Votos', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema de votos', layout)
     
     def tela_filtros_de_relatorios(self):
-        print("." * 15,"FILTROS","." * 15)
-
-        print("\n1. Listar todos os votos\n" \
-                "2. Listar votos por ano\n" \
-                "0. Menu de votos em diretores")
+        self.init_opcoes_filtros()
+        event, values = self.__window.read()
+        opcao = 0
         
-        opcao = self.verificar_inteiro("\nDigite a opção: ", [0,1,2,])
+        if event in (sg.WIN_CLOSED, 'Cancelar', None):
+            opcao = 0
+        elif values['1']:
+            opcao = 1
+        elif values['2']:
+            opcao = 2
+        elif values['0']:
+            opcao = 0
+            
+        self.close()
         return opcao
     
-    def verificar_inteiro(self, msg=" ", opcoes_validas = None):
-        while True:
-            entrada = input(msg)
-            try:
-                numero_int = int(entrada) 
-                if opcoes_validas and numero_int not in opcoes_validas:
-                    raise ValueError
-                return numero_int
-            except ValueError:
-                print("\nValor incorreto!")
-                if opcoes_validas:
-                    print("Valores válidos: ", opcoes_validas)
+    def init_opcoes_filtros(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("=============== FILTROS ===============", font=("Helvetica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvetica", 15))],
+            [sg.Radio('Listar Votos Gerais', "RD1", key='1')],
+            [sg.Radio('Listar Votos Por Ano', "RD1", key='2')],
+            [sg.Radio('Menu de Votos em Diretores', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema de votos', layout)
     
     def mostrar_mensagem(self, msg):
-        print(msg)
+        sg.popup("", msg)
+
+    def close(self):
+        if self.__window:
+            self.__window.close()
+
+    def open(self):
+        event, values = self.__window.read()
+        return event, values

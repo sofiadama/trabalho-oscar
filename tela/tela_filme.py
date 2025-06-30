@@ -1,78 +1,163 @@
-class TelaFilme():
-    
-    def __init__(self, controlador_sistema):
-        self.__controlador_sistema = controlador_sistema
+import PySimpleGUI as sg
+
+class TelaFilme():      
+    def __init__(self):
+        sg.theme('DarkTeal4')
+        self.__window = None
+        self.init_opcoes()
 
     def tela_opcoes(self):
-        print("." * 15,"INDICAÇÃO DE FILMES","." * 15)
-        print("\n1. Adicionar filme\n" \
-                "2. Alterar dados\n" \
-                "3. Listar filmes\n" \
-                "4. Remover filme\n" \
-                "0. Menu\n")
-        
-        opcao = self.verificar_inteiro("Digite a opção: ")
+        self.init_opcoes()
+        button, values = self.open()
+        opcao = -1
+        if values.get('1'):
+            opcao = 1
+        elif values.get('2'):
+            opcao = 2
+        elif values.get('3'):
+            opcao = 3
+        elif values.get('4'):
+            opcao = 4
+        elif values.get('0') or button in (None, 'Cancelar'):
+            opcao = 0
+        self.close()
         return opcao
-    
+
+    def init_opcoes(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('-------- FILMES ----------', font=("Helvetica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvetica", 15))],
+            [sg.Radio('Incluir Filme', "RD1", key='1')],
+            [sg.Radio('Alterar Filme', "RD1", key='2')],
+            [sg.Radio('Listar Filme', "RD1", key='3')],
+            [sg.Radio('Excluir Filme', "RD1", key='4')],
+            [sg.Radio('Retornar', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema do Oscar', layout)
+
     def tela_filtros_de_relatorios(self):
-        print("." * 10,"RELATÓRIO DE INDICAÇÕES","." * 10)
-        print("\n1. Listar todos os indicados\n" \
-                "2. Listar indicados por ano\n" \
-                "3. Listar indicados por categoria\n" \
-                "0. Menu de indicação de filmes\n")
+        while True:
+            layout = [
+                [sg.Text('-------- RELATÓRIO DE INDICAÇÕES ----------', font=('Helvetica', 20))],
+                [sg.Text('Escolha uma opção:', font=('Helvetica', 14))],
+                [sg.Radio('Listar todos os filmes indicados', "RD1", key='1')],
+                [sg.Radio('Listar filmes indicados por ano', "RD1", key='2')],
+                [sg.Radio('Listar filmes indicados por categoria', "RD1", key='3')],
+                [sg.Radio('Menu de indicação de filmes', "RD1", key='0')],
+                [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+            ]
 
-        opcao = self.verificar_inteiro("Digite a opção: ")
-        return opcao
-    
+            window = sg.Window('Relatório de Indicações', layout)
+            button, values = window.read()
+            window.close()
+
+            if button in (None, 'Cancelar'):
+                return None
+
+            if values.get('1'):
+                return 1
+            elif values.get('2'):
+                return 2
+            elif values.get('3'):
+                return 3
+            elif values.get('0'):
+                return 0
+            else:
+                sg.popup('Erro! Selecione uma das opções válidas: 0, 1 ou 2.')
+
     def pegar_dados_filme(self):
-        print("." * 15, "INDICAR FILME", "." * 15)
-
-        titulo = input("\nTítulo: ").strip().title()
-        sinopse = input("Sinopse: ")
-        titulo_categoria = input("Categoria: ").strip().title()
-        categoria = self.__controlador_sistema.controlador_categoria.pegar_categoria_por_titulo(titulo_categoria)
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("=============== DADOS FILME ===============", font=("Helvetica", 25))],
+            [sg.Text('Título:', size=(15, 1)), sg.InputText('', key='titulo')],
+            [sg.Text('Sinopse:', size=(15, 1)), sg.InputText('', key='sinopse')],
+            [sg.Text('Categoria:', size=(15, 1)), sg.InputText('', key='categoria')],
+            [sg.Text('Ano de indicação:', size=(15, 1)), sg.InputText('', key='ano_indicacao')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema do Oscar', layout)
         
-        if categoria is None:
-            self.mostrar_mensagem("\nCategoria não encontrada. Cadastre a categoria primeiro.")
-            return None
-        
-        anos_validos = list(range(2020,2026))
-        ano_indicacao = self.verificar_inteiro("Ano de indicação: ", anos_validos)
+        event, values = self.open()
+        self.close()
 
-        return {"titulo": titulo, "sinopse": sinopse, "categoria": categoria, "ano_indicacao": ano_indicacao}
-    
+        if event == 'Confirmar':
+            titulo = values['titulo']
+            sinopse = values['sinopse']
+            categoria = values['categoria']
+            ano = values['ano_indicacao']
+            resultado = {"titulo": titulo, "sinopse": sinopse, "categoria": categoria, "ano_indicacao": ano}
+        else:
+            resultado = None
+        
+        self.close()
+        return resultado
+
     def mostrar_dados_filme(self, dados_filme):
-        print("Filme: ", dados_filme["titulo"])
-        print("Sinopse: ", dados_filme["sinopse"])
-        print("Categoria: ", dados_filme["categoria"].titulo)
-        print("Ano de indicação: ", dados_filme["ano_indicacao"])
-        print("\n")
+        string_todos_filmes = ""
+        for dado in dados_filme:
+            string_todos_filmes += "FILME: " + str(dado["titulo"]) + '\n'
+            string_todos_filmes += "SINOPSE: " + str(dado["sinopse"]) + '\n'
+            string_todos_filmes += "CATEGORIA: " + str(dado["categoria"]) + '\n'
+            string_todos_filmes += "ANO DE INDICAÇÃO: " + str(dado["ano_indicacao"]) + '\n\n'
+
+        sg.popup("=============== LISTA DE FILMES ===============", string_todos_filmes)
 
     def buscar_filme_por_titulo(self):
-        filme = input("Digite o título do filme: ").strip().title()
-        return filme
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text('-------- BUSCAR FILME ----------', font=("Helvetica", 25))],
+            [sg.Text('Titulo do Filme:', size=(15, 1)), sg.InputText('', key='nome')],
+            [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Buscar Filme', layout)
+        button, values = self.open()
+        self.close()
 
+        if button == 'Confirmar':
+            nome = values.get('nome', '').strip().title()
+            if nome == '':
+                sg.popup('Erro! O nome não pode ficar vazio.')
+                return None
+            return nome
+        return None
+
+    def buscar_indicados_por_ano(self):
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("=============== SELECIONAR INDICADOS ===============", font=("Helvetica", 25))],
+            [sg.Text('Digite o ano que deseja selecionar: ', font=("Helvetica", 15))],
+            [sg.Text('ANO:', size=(15, 1)), sg.InputText('', key='ano')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Seleciona ano', layout)
+
+        event, values = self.__window.read()
+        ano = values['ano'] if event == 'Confirmar' else None
+        self.close()
+        return ano
+    
     def buscar_indicados_por_categoria(self):
-        categoria = input("Digite a categoria a qual deseja filtrar: ").strip().title()
+        sg.theme('DarkTeal4')
+        layout = [
+            [sg.Text("=============== SELECIONAR INDICADOS ===============", font=("Helvetica", 25))],
+            [sg.Text('Digite a categoria que deseja selecionar: ', font=("Helvetica", 15))],
+            [sg.Text('CATEGORIA:', size=(15, 1)), sg.InputText('', key='categoria')],
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
+        ]
+        self.__window = sg.Window('Seleciona categoria', layout)
+
+        event, values = self.__window.read()
+        categoria = values['categoria'] if event == 'Confirmar' else None
+        self.close()
         return categoria
     
-    def buscar_indicados_por_ano(self):
-        anos_validos = list(range(2020,2026))
-        ano_indicacao = self.verificar_inteiro("Digite o ano de indicação o qual deseja filtrar: ", anos_validos)
-        return ano_indicacao
-    
-    def verificar_inteiro(self, msg=" ", opcoes_validas = None):
-        while True:
-            entrada = input(msg)
-            try:
-                numero_int = int(entrada) 
-                if opcoes_validas and numero_int not in opcoes_validas:
-                    raise ValueError
-                return numero_int
-            except ValueError:
-                print("Valor incorreto!")
-                if opcoes_validas:
-                    print("Valores válidos: ", opcoes_validas)
-
     def mostrar_mensagem(self, msg):
-        print(msg)
+        sg.popup("", msg)
+
+    def close(self):
+        self.__window.close()
+
+    def open(self):
+        return self.__window.read()
