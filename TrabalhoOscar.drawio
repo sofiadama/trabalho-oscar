@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.0.9">
   <diagram id="WZgvneTV7CMxQMR7iooE" name="Página-2">
-    <mxGraphModel dx="4177" dy="2406" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2503" dy="1503" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -390,19 +390,19 @@
           <mxGeometry y="57" width="314" height="98" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-7" value="ControladorVoto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="1194" y="2867" width="292" height="437" as="geometry" />
+          <mxGeometry x="1068" y="2204" width="306" height="437" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-8" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- voto_DAO: VotoDAO&lt;br&gt;&lt;/div&gt;&lt;div&gt;- membro_autenticado: None&lt;/div&gt;&lt;div&gt;- tela_voto: TelaVoto&lt;/div&gt;&lt;div&gt;-&amp;nbsp;controlador_sistema = ControladorSistema&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="_fS8pHCnLdkIU9AXur5i-7" vertex="1">
-          <mxGeometry y="26" width="292" height="93" as="geometry" />
+          <mxGeometry y="26" width="306" height="93" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-9" value="" style="line;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;rounded=0;" parent="_fS8pHCnLdkIU9AXur5i-7" vertex="1">
-          <mxGeometry y="119" width="292" height="8" as="geometry" />
+          <mxGeometry y="119" width="306" height="8" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-10" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;+ &amp;lt;&amp;lt;create&amp;gt;&amp;gt;__init__(membro_autenticado: None, controlador_sistema: ControladorSistema)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ autenticar_membro()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ contar_votos_por_ano()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ contar_votos_por_categoria()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ contar_filmes_mais_premiados()&lt;/div&gt;&lt;div&gt;+ carregar_votos_gerais()&lt;/div&gt;&lt;div&gt;+ listar_votos_gerais()&lt;/div&gt;&lt;div&gt;+ listar_vencedores_por_ano()&lt;/div&gt;&lt;div&gt;+ listar_vencedores_por_categoria()&lt;/div&gt;&lt;div&gt;+ listar_filmes_mais_premiados()&lt;/div&gt;&lt;div&gt;+ pegar_membro_autenticado()&lt;/div&gt;&lt;div&gt;+ pegar_lista_votos_gerais()&lt;/div&gt;&lt;div&gt;+ retornar_menu()&lt;/div&gt;&lt;div&gt;+ abrir_filtro_vencedores()&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="_fS8pHCnLdkIU9AXur5i-7" vertex="1">
-          <mxGeometry y="127" width="292" height="310" as="geometry" />
+          <mxGeometry y="127" width="306" height="310" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-11" value="ControladorVotoAtor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="1634" y="2867" width="292" height="477" as="geometry" />
+          <mxGeometry x="1737" y="2177" width="292" height="477" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-12" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- voto_ator_DAO: VotoAtorDAO&lt;br&gt;&lt;/div&gt;&lt;div&gt;- tela_voto: TelaVoto&lt;/div&gt;&lt;div&gt;- tela_voto_ator: TelaVotoAtor&lt;/div&gt;&lt;div&gt;-&amp;nbsp;controlador_sistema = ControladorSistema&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="_fS8pHCnLdkIU9AXur5i-11" vertex="1">
           <mxGeometry y="26" width="292" height="93" as="geometry" />
@@ -414,7 +414,7 @@
           <mxGeometry y="127" width="292" height="350" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-15" value="ControladorVotoDiretor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="2077" y="2867" width="292" height="476" as="geometry" />
+          <mxGeometry x="2456" y="2147" width="292" height="476" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-16" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- voto_diretor_DAO: VotoDiretorDAO&lt;br&gt;&lt;/div&gt;&lt;div&gt;- tela_voto: TelaVoto&lt;/div&gt;&lt;div&gt;- tela_voto_diretor: TelaVotoDiretor&lt;/div&gt;&lt;div&gt;-&amp;nbsp;controlador_sistema = ControladorSistema&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="_fS8pHCnLdkIU9AXur5i-15" vertex="1">
           <mxGeometry y="26" width="292" height="93" as="geometry" />
@@ -426,7 +426,7 @@
           <mxGeometry y="127" width="292" height="349" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-19" value="ControladorVotoFilme" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="2525" y="2867" width="292" height="481" as="geometry" />
+          <mxGeometry x="3224" y="2144.5" width="292" height="481" as="geometry" />
         </mxCell>
         <mxCell id="_fS8pHCnLdkIU9AXur5i-20" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;&lt;div&gt;- voto_filme_DAO: VotoFilmeDAO&lt;br&gt;&lt;/div&gt;&lt;div&gt;- tela_voto: TelaVoto&lt;/div&gt;&lt;div&gt;- tela_voto_filme: TelaVotoFilme&lt;/div&gt;&lt;div&gt;-&amp;nbsp;controlador_sistema = ControladorSistema&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=0;" parent="_fS8pHCnLdkIU9AXur5i-19" vertex="1">
           <mxGeometry y="26" width="292" height="93" as="geometry" />
